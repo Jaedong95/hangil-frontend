@@ -26,11 +26,13 @@ const NAV_ITEMS = [
     ],
   },
   {
-    label: '감리수행절차',
+    label: '감리정보',
     key: 'procedure',
     children: [
       { label: '개요', path: '/procedure/overview' },
       { label: '감리 수행절차', path: '/procedure/process' },
+      { label: '감리 기준', path: '/procedure/standards' },
+      { label: '감리 품질보증 체계', path: '/procedure/quality' },
     ],
   },
   {

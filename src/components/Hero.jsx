@@ -2,12 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Hero.css';
 
-const STATS = [
-  { value: '20+', label: '년 업력' },
-  { value: '500+', label: '감리 수행 건' },
-  { value: '150+', label: '고객 기관' },
-  { value: '98%', label: '고객 만족도' },
-];
 
 const SERVICES = [
   {
@@ -54,7 +48,7 @@ const SERVICES = [
 
 const WHY_ITEMS = [
   { num: '01', title: '대한민국 최초 AI 감리', desc: 'AI 기술을 접목한 차세대 감리 플랫폼으로 정확성과 효율을 동시에 달성합니다.' },
-  { num: '02', title: '20년 이상의 전문성', desc: '풍부한 공공·금융 분야 감리 경험을 바탕으로 검증된 방법론을 적용합니다.' },
+  { num: '02', title: '다양한 분야의 전문 인력', desc: '수석감리원·기술사·AI 전문가·클라우드·데이터 등 각 분야 자격 보유 전문가가 함께합니다.' },
   { num: '03', title: '자체 개발 솔루션', desc: 'FP Code 솔루션으로 기능점수 산정 자동화를 실현하고 객관성을 보장합니다.' },
   { num: '04', title: '법적 요건 완전 충족', desc: '전자정부법 등 관련 법규에 따른 의무 감리 요건을 빈틈없이 충족시킵니다.' },
 ];
@@ -118,14 +112,6 @@ export default function Hero() {
                   <div className="hic-sub">기능점수 자동 산정 · 특허 등록 완료</div>
                 </div>
               </div>
-              <div className="hero-stats-mini">
-                {STATS.map((s) => (
-                  <div key={s.label} className="hsm-item">
-                    <span className="hsm-value">{s.value}</span>
-                    <span className="hsm-label">{s.label}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -133,6 +119,35 @@ export default function Hero() {
           <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
             <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="white" />
           </svg>
+        </div>
+      </section>
+
+      {/* ── Why ── */}
+      <section className="page-section why-section">
+        <div className="container">
+          <div className="why-layout">
+            <div className="why-left fade-up">
+              <p className="section-eyebrow">Why HANGIL AI</p>
+              <h2 className="section-title">왜 한길에이아이인가요?</h2>
+              <p className="why-desc">
+                수석감리원·기술사·AI 전문가 등 각 분야 전문 인력과 대한민국 최초 AI 감리 기술을 결합하여 최고의 감리 서비스를 제공합니다.
+              </p>
+              <Link to="/company/greeting" className="btn-primary" style={{ marginTop: 8 }}>
+                회사 소개 보기
+              </Link>
+            </div>
+            <div className="why-right">
+              {WHY_ITEMS.map((item, i) => (
+                <div key={item.num} className="why-item fade-up" style={{ transitionDelay: `${i * 0.07}s` }}>
+                  <div className="wi-num">{item.num}</div>
+                  <div className="wi-body">
+                    <h3 className="wi-title">{item.title}</h3>
+                    <p className="wi-desc">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -157,52 +172,9 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* ── Why ── */}
-      <section className="page-section-alt why-section">
-        <div className="container">
-          <div className="why-layout">
-            <div className="why-left fade-up">
-              <p className="section-eyebrow">Why HANGIL AI</p>
-              <h2 className="section-title">왜 한길에이아이인가요?</h2>
-              <p className="why-desc">
-                20년 이상의 경험과 대한민국 최초 AI 감리 기술을 결합하여 고객에게 최고의 감리 서비스를 제공합니다.
-              </p>
-              <Link to="/company/greeting" className="btn-primary" style={{ marginTop: 8 }}>
-                회사 소개 보기
-              </Link>
-            </div>
-            <div className="why-right">
-              {WHY_ITEMS.map((item, i) => (
-                <div key={item.num} className="why-item fade-up" style={{ transitionDelay: `${i * 0.07}s` }}>
-                  <div className="wi-num">{item.num}</div>
-                  <div className="wi-body">
-                    <h3 className="wi-title">{item.title}</h3>
-                    <p className="wi-desc">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ── CTA Banner ── */}
-      <section className="cta-banner">
-        <div className="container cta-inner">
-          <div className="fade-up">
-            <p className="section-eyebrow" style={{ color: 'rgba(255,255,255,0.6)' }}>AI-Powered Supervision</p>
-            <h2 className="cta-title">"대한민국 최초<br />AI를 활용한 감리 서비스"</h2>
-            <p className="cta-sub">혁신적인 AI 기술과 20년 전문성의 결합 — 지금 바로 상담해 보세요.</p>
-          </div>
-          <div className="cta-actions fade-up">
-            <Link to="/pricing" className="btn-white">견적 문의</Link>
-            <Link to="/solutions/fpcode" className="btn-white-outline">FP Code 알아보기</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Solutions Teaser ── */}
-      <section className="page-section">
+      {/* ── FP Code ── */}
+      <section className="page-section" style={{ paddingTop: '48px' }}>
         <div className="container">
           <div className="section-header fade-up">
             <p className="section-eyebrow">Our Solution</p>
@@ -218,15 +190,10 @@ export default function Hero() {
                 자연어 처리(NLP) 기반으로 요구사항 문서를 자동 분석하여 기능점수(Function Point)를 정확하게 산정합니다.
                 기존 수작업 대비 90% 이상의 시간을 절감하고, 표준화된 결과로 객관성을 보장합니다.
               </p>
-              <div className="fpt-stats">
-                {[['90%+', '시간 절감'], ['±3%', '산정 오차'], ['50+', '도입 기관']].map(([v, l]) => (
-                  <div key={l} className="fpt-stat">
-                    <span className="fpt-stat-v">{v}</span>
-                    <span className="fpt-stat-l">{l}</span>
-                  </div>
-                ))}
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <Link to="/solutions/fpcode" className="btn-primary">솔루션 상세 보기</Link>
+                <Link to="/pricing" className="btn-outline">견적 문의</Link>
               </div>
-              <Link to="/solutions/fpcode" className="btn-primary">솔루션 상세 보기</Link>
             </div>
             <div className="fpt-right">
               <div className="fpt-mockup">

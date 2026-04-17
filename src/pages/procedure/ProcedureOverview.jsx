@@ -2,103 +2,159 @@ import React from 'react';
 import PageHeader from '../../components/PageHeader';
 import './Procedure.css';
 
+const DEF_ITEMS = [
+  { label: '주체', text: '감리발주자 및 피감리인의 이해관계로부터 독립된 자가' },
+  { label: '목적', text: '정보시스템의 효율성을 향상시키고 안전성을 확보하기 위하여' },
+  { label: '관점', text: '제3자적 관점에서' },
+  { label: '감리대상', text: '정보시스템의 구축 및 운영 등에 관한 사항을' },
+  { label: '감리활동', text: '종합적으로 점검하고 문제점을 개선하도록 하는 것' },
+];
+
+
+const TARGETS = [
+  {
+    icon: '🖥️',
+    title: '정보시스템 특성',
+    items: [
+      '대국민 서비스를 위한 행정업무 또는 민원업무 처리용으로 사용하는 경우',
+      '여러 행정기관 등이 공동으로 구축하거나 사용하는 경우',
+    ],
+    note: '사업비 1억원 미만 소규모 사업으로 비용 대비 효과가 낮다고 인정하는 경우 제외',
+  },
+  {
+    icon: '💰',
+    title: '사업비 규모',
+    items: [
+      '정보시스템 구축사업으로서 사업비가 5억원 이상인 경우',
+      '단순 하드웨어·소프트웨어 구입비는 사업비에서 제외',
+    ],
+    note: '단순 구입비 여부는 행정기관 등의 장이 판단',
+  },
+  {
+    icon: '📋',
+    title: '행정기관 장의 필요성 인정',
+    items: [
+      'IT아키텍처 또는 정보화전략계획 수립 사업',
+      '정보시스템 개발 또는 운영 등을 위한 사업',
+    ],
+    note: '해당 행정기관 등의 장이 감리 시행이 필요하다고 인정하는 경우',
+  },
+];
+
+const EFFECTS = [
+  {
+    icon: '⚖️',
+    title: '법적 요건 준수',
+    desc: '업무 처리 관련 규정, 정보화 사업 추진 관련 규정 등 법적 요건을 충족합니다.',
+  },
+  {
+    icon: '🎯',
+    title: '효과성 확보',
+    desc: '정보시스템이 사전에 설정된 목표를 달성하도록 하여 사업의 효과성을 보장합니다.',
+  },
+  {
+    icon: '⚡',
+    title: '효율성 확보',
+    desc: '응답시간, 처리량, CPU·디스크 등 자원 이용도를 최적화하여 시스템 운영 효율성을 높입니다.',
+  },
+  {
+    icon: '🔐',
+    title: '안전성 확보',
+    desc: '무결성(정확성·완전성·일관성), 가용성, 기밀성을 확보하여 시스템 안전성을 보장합니다.',
+  },
+];
+
+const SUBJECTS = [
+  {
+    icon: '🏢',
+    title: '감리법인',
+    desc: '재정능력과 기술능력을 갖추고 등록한 법인이 감리 결과에 대한 책임의 주체가 됩니다.',
+    items: ['재정능력 및 기술능력 보유', '정식 등록 감리법인', '감리 결과 최종 책임'],
+    note: '예외: 국가안전보장 등 특수한 경우, 발주기관에서 지정한 기관',
+  },
+  {
+    icon: '👤',
+    title: '감리원',
+    desc: '기술자격과 IT업무경력을 갖추고 감리원증을 교부받은 자가 감리업무를 직접 수행합니다.',
+    items: ['기술자격 및 IT업무경력 보유', '감리원증 교부받은 자', '감리업무 직접 수행'],
+    note: '예외: 특정 분야 전문가를 30% 범위 내에서 보조인력으로 활용 가능',
+  },
+];
+
 export default function ProcedureOverview() {
   return (
     <div>
       <PageHeader
-        title="감리수행절차 개요"
-        subtitle="한길정보기술의 체계적인 감리 수행 방법론을 소개합니다."
-        breadcrumbs={[{ label: '감리수행절차' }, { label: '개요' }]}
+        title="정보시스템 감리 개요"
+        subtitle="감리의 정의, 대상, 기대효과를 안내합니다."
+        breadcrumbs={[{ label: '감리정보' }, { label: '개요' }]}
       />
 
       <section className="page-section">
         <div className="container">
-          <div className="section-divider" />
-          <h2 className="section-title">감리 수행 개요</h2>
-          <p className="section-subtitle">
-            한길정보기술은 전자정부법 및 관련 고시에 따른 법적 요건을 충족하면서도,
-            AI 기술을 활용한 혁신적인 감리 방법론을 적용합니다.
-          </p>
 
-          {/* 감리 근거 */}
-          <div className="overview-box-grid">
-            {[
-              {
-                icon: '⚖️',
-                title: '법적 근거',
-                items: [
-                  '전자정부법 제57조 (정보시스템의 감리)',
-                  '행정기관 및 공공기관 정보시스템 감리 지침 (행정안전부 고시)',
-                  '소프트웨어 진흥법',
-                ],
-              },
-              {
-                icon: '🏆',
-                title: '감리 원칙',
-                items: [
-                  '독립성: 발주기관·사업자와 독립적 위치에서 공정하게 수행',
-                  '전문성: 자격을 갖춘 전문 감리사 배치',
-                  '객관성: 데이터와 증거 기반의 객관적 판단',
-                  'AI 활용: 최신 AI 기술로 정밀도·효율성 향상',
-                ],
-              },
-              {
-                icon: '📐',
-                title: '감리 대상',
-                items: [
-                  '40억원 이상 정보화 사업 (의무 감리)',
-                  '20억원 이상 ~ 40억원 미만 (선택적 의무)',
-                  '20억원 미만 (임의 감리)',
-                  '클라우드 전환, 운영 사업 등',
-                ],
-              },
-            ].map((box) => (
-              <div key={box.title} className="overview-box card">
-                <div className="overview-box-icon">{box.icon}</div>
-                <h3 className="overview-box-title">{box.title}</h3>
-                <ul className="overview-box-list">
-                  {box.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
+          {/* 정보시스템 감리란? */}
+          <div className="section-divider" />
+          <h2 className="section-title">정보시스템 감리란?</h2>
+          <div className="def-flow">
+            {DEF_ITEMS.map((item) => (
+              <div key={item.label} className="def-item">
+                <span className="def-label">{item.label}</span>
+                <p className="def-text">{item.text}</p>
               </div>
             ))}
           </div>
 
-          {/* 감리 유형별 시점 */}
-          <div style={{ marginTop: 60 }}>
+          {/* 정보시스템 감리의 개념 */}
+          <div className="section-block">
             <div className="section-divider" />
-            <h2 className="section-title">감리 시점 및 유형</h2>
-            <div className="phase-timeline">
-              {[
-                { phase: '사업 초기', label: '요구사항 감리', color: '#1a4fa0', desc: '사업 계획의 적정성, 요구사항 명확성 검토' },
-                { phase: '설계 단계', label: '설계 감리', color: '#0052b4', desc: '시스템 설계의 완전성 및 구현 가능성 확인' },
-                { phase: '개발 단계', label: '개발 감리', color: '#0066cc', desc: '개발 표준 준수, 코드 품질, 테스트 점검' },
-                { phase: '종료 단계', label: '종료 감리', color: '#1a7fd4', desc: '인수 테스트, 이행 계획, 운영 전환 준비 확인' },
-                { phase: '운영 단계', label: '운영 감리', color: '#3399e0', desc: '운영 안정성, 성능, 보안 수준 주기적 점검' },
-              ].map((p, i) => (
-                <div key={p.label} className="phase-item">
-                  <div className="phase-bar" style={{ background: p.color }}>
-                    <span className="phase-phase">{p.phase}</span>
-                    <span className="phase-label">{p.label}</span>
-                  </div>
-                  <div className="phase-desc">{p.desc}</div>
-                  {i < 4 && <div className="phase-arrow">→</div>}
-                </div>
-              ))}
-            </div>
-          </div>
+            <h2 className="section-title">정보시스템 감리의 개념</h2>
 
-          {/* AI 감리 특징 */}
-          <div style={{ marginTop: 60 }}>
-            <div className="section-divider" />
-            <h2 className="section-title">AI 감리의 특징</h2>
-            <div className="ai-features-grid">
+            {/* 3자 관계도 */}
+            <div className="audit-rel">
+              <div className="audit-rel-top">
+                <div className="ar-party">
+                  <div className="ar-icon">🏛️</div>
+                  <div className="ar-label">발주기관</div>
+                  <div className="ar-sub">과업 제시</div>
+                </div>
+                <div className="ar-conn">
+                  <span className="ar-conn-label">점검 의뢰</span>
+                  <div className="ar-conn-line">→</div>
+                  <span className="ar-conn-label ar-conn-reverse">← 시정 권고</span>
+                </div>
+                <div className="ar-party ar-party-main">
+                  <div className="ar-icon">🔍</div>
+                  <div className="ar-label">감리법인</div>
+                  <div className="ar-sub">독립적 제3자 점검</div>
+                </div>
+                <div className="ar-conn">
+                  <span className="ar-conn-label">점검 수행</span>
+                  <div className="ar-conn-line">→</div>
+                  <span className="ar-conn-label ar-conn-reverse">← 시정 조치</span>
+                </div>
+                <div className="ar-party">
+                  <div className="ar-icon">💼</div>
+                  <div className="ar-label">사업자</div>
+                  <div className="ar-sub">시스템 구축</div>
+                </div>
+              </div>
+              <div className="audit-rel-bottom">
+                <div className="ar-down-line" />
+                <div className="ar-report">
+                  <span className="ar-report-title">감리보고서</span>
+                  <span className="ar-report-sub">감리수행결과 · 시정조치확인</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 4개 속성 카드 */}
+            <div className="ai-features-grid" style={{ marginTop: 24 }}>
               {[
-                { icon: '⚡', title: '신속한 문서 분석', desc: '수백~수천 페이지의 산출물을 AI가 자동으로 분석하여 감리 시간을 획기적으로 단축합니다.' },
-                { icon: '🎯', title: '높은 정확도', desc: '인간이 놓칠 수 있는 미세한 불일치나 오류를 AI가 빠짐없이 탐지합니다.' },
-                { icon: '📊', title: '데이터 기반 결과', desc: '감리 결과를 정량화하여 객관적인 품질 수준 지표와 추이를 제공합니다.' },
-                { icon: '🔄', title: '지속적 학습', desc: '감리 데이터가 축적될수록 AI 모델이 고도화되어 감리 품질이 계속 향상됩니다.' },
+                { icon: '🎯', title: '목적', desc: '정보시스템의 효율(효과)성 향상 및 안전성 확보' },
+                { icon: '⚖️', title: '독립성', desc: '발주자·사업자의 이해관계로부터 독립적인 제3자의 관점' },
+                { icon: '🔍', title: '대상', desc: '정보시스템의 구축 및 운영 등에 관한 사항' },
+                { icon: '📋', title: '방법', desc: '종합적으로 점검하고 문제점을 개선토록 하는 것' },
               ].map((item) => (
                 <div key={item.title} className="ai-feature-card card">
                   <div className="ai-feature-icon">{item.icon}</div>
@@ -108,6 +164,97 @@ export default function ProcedureOverview() {
               ))}
             </div>
           </div>
+
+          {/* 관련 법령 */}
+          <div className="section-block">
+            <div className="section-divider" />
+            <h2 className="section-title">관련 법령 및 지침</h2>
+            <div className="law-tree-wrap">
+              <div className="law-tree">
+                <div className="lt-col">
+                  <div className="lt-node lt-primary">전자정부법</div>
+                  <div className="lt-v" />
+                  <div className="lt-node">전자정부법 시행령</div>
+                </div>
+                <div className="lt-h" />
+                <div className="lt-col">
+                  <div className="lt-node">정보시스템 감리기준</div>
+                </div>
+                <div className="lt-h" />
+                <div className="lt-col">
+                  <div className="lt-node">감리기준 조문별 해설서</div>
+                  <div className="lt-v" />
+                  <div className="lt-siblings">
+                    <div className="lt-sib-col">
+                      <div className="lt-node lt-sm">정보시스템감리<br />발주·관리 가이드</div>
+                    </div>
+                    <div className="lt-sib-col">
+                      <div className="lt-node lt-sm">정보시스템감리수행<br />가이드</div>
+                      <div className="lt-v lt-v-sm" />
+                      <div className="lt-node lt-sm lt-muted">사업유형별<br />감리점검가이드 (46건)</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 감리 대상 */}
+          <div className="section-block">
+            <div className="section-divider" />
+            <h2 className="section-title">감리 대상</h2>
+            <div className="overview-box-grid">
+              {TARGETS.map((t) => (
+                <div key={t.title} className="overview-box card">
+                  <div className="overview-box-icon">{t.icon}</div>
+                  <h3 className="overview-box-title">{t.title}</h3>
+                  <ul className="overview-box-list">
+                    {t.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  <p className="target-note">{t.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 감리 기대효과 */}
+          <div className="section-block">
+            <div className="section-divider" />
+            <h2 className="section-title">감리 기대효과</h2>
+            <div className="ai-features-grid">
+              {EFFECTS.map((item) => (
+                <div key={item.title} className="ai-feature-card card">
+                  <div className="ai-feature-icon">{item.icon}</div>
+                  <h3 className="ai-feature-title">{item.title}</h3>
+                  <p className="ai-feature-desc">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 감리 주체 */}
+          <div className="section-block">
+            <div className="section-divider" />
+            <h2 className="section-title">감리 주체</h2>
+            <div className="subject-grid">
+              {SUBJECTS.map((s) => (
+                <div key={s.title} className="subject-card card">
+                  <div className="subject-header">
+                    <div className="subject-icon">{s.icon}</div>
+                    <h3 className="subject-title">{s.title}</h3>
+                  </div>
+                  <p className="subject-desc">{s.desc}</p>
+                  <ul className="overview-box-list" style={{ marginTop: 16 }}>
+                    {s.items.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                  <p className="target-note">{s.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
     </div>

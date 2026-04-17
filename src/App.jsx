@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
+import ScrollToTop from './components/ScrollToTop';
 
 // 회사 소개
 import Greeting from './pages/company/Greeting';
@@ -21,6 +22,8 @@ import QualityDiagnosis from './pages/business/QualityDiagnosis';
 // 감리수행절차
 import ProcedureOverview from './pages/procedure/ProcedureOverview';
 import ProcedureProcess from './pages/procedure/ProcedureProcess';
+import ProcedureStandards from './pages/procedure/ProcedureStandards';
+import ProcedureQuality from './pages/procedure/ProcedureQuality';
 
 // 대가 산정
 import Pricing from './pages/pricing/Pricing';
@@ -34,6 +37,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<Hero />} />
@@ -55,6 +59,8 @@ function App() {
           {/* 감리수행절차 */}
           <Route path="/procedure/overview" element={<ProcedureOverview />} />
           <Route path="/procedure/process" element={<ProcedureProcess />} />
+          <Route path="/procedure/standards" element={<ProcedureStandards />} />
+          <Route path="/procedure/quality" element={<ProcedureQuality />} />
 
           {/* 대가 산정 */}
           <Route path="/pricing" element={<Pricing />} />

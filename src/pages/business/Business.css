@@ -19,39 +19,39 @@
 .biz-highlight-box p { font-size: 0.9rem; color: var(--primary-dark); line-height: 1.75; }
 
 .biz-visual {
-  background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+  background: white;
+  border: 2px solid var(--primary);
   border-radius: var(--radius-lg);
   padding: 40px 36px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .biz-visual-item {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: var(--bg-light);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 14px 18px;
   display: flex;
   align-items: center;
   gap: 14px;
-  color: white;
-  transition: background 0.2s;
+  transition: background 0.2s, border-color 0.2s;
 }
 
-.biz-visual-item:hover { background: rgba(255,255,255,0.18); }
+.biz-visual-item:hover { background: rgba(15,59,130,0.05); border-color: var(--accent); }
 
 .biz-visual-num {
   width: 30px; height: 30px;
-  background: rgba(255,255,255,0.2);
+  background: var(--primary);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-weight: 800; font-size: 0.82rem; color: white;
   flex-shrink: 0;
 }
 
-.biz-visual-text { font-size: 0.88rem; color: rgba(255,255,255,0.8); }
+.biz-visual-text { font-size: 0.88rem; color: var(--text-mid); font-weight: 500; }
 
 .service-scope { margin-top: 64px; }
 
@@ -178,9 +178,13 @@
   z-index: 1;
 }
 
+.section-block { margin-top: 64px; }
+.scope-grid-2 { grid-template-columns: repeat(2, 1fr); }
+
 @media (max-width: 960px) {
   .biz-page-intro { grid-template-columns: 1fr; }
   .scope-grid { grid-template-columns: repeat(2, 1fr); }
+  .scope-grid-2 { grid-template-columns: repeat(2, 1fr); }
   .expectation-grid { grid-template-columns: 1fr; }
   .ism-steps { grid-template-columns: repeat(2, 1fr); }
   .ism-step-arrow { display: none; }
@@ -188,5 +192,6 @@
 }
 @media (max-width: 600px) {
   .scope-grid { grid-template-columns: 1fr; }
+  .scope-grid-2 { grid-template-columns: 1fr; }
   .ism-steps { grid-template-columns: 1fr; }
 }
