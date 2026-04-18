@@ -3,34 +3,61 @@ import PageHeader from '../../components/PageHeader';
 import './Solutions.css';
 
 const FEATURES = [
-  { icon: '🤖', title: 'AI 자동 산정', desc: '자연어 처리 기반으로 요구사항 문서를 분석하여 기능점수(FP)를 자동으로 산정합니다.' },
-  { icon: '📊', title: '실시간 대시보드', desc: '프로젝트별 기능점수 현황, 변경 이력, 추이를 실시간으로 시각화하여 보여줍니다.' },
-  { icon: '🔍', title: '요구사항 추적', desc: '기능점수와 요구사항을 연계하여 변경 발생 시 영향도를 자동으로 분석합니다.' },
-  { icon: '📝', title: '보고서 자동 생성', desc: 'IFPUG/NESMA 국제 표준에 맞는 기능점수 산정 보고서를 클릭 한 번에 생성합니다.' },
-  { icon: '🔗', title: 'API 연동', desc: 'REST API를 통해 기존 PM/감리 시스템과 손쉽게 연동하여 데이터를 공유합니다.' },
-  { icon: '🛡️', title: '보안 강화', desc: '역할 기반 접근 제어와 감사 로그로 중요 데이터를 안전하게 관리합니다.' },
+  {
+    key: 'data',
+    title: '데이터 기능',
+    icon: '🗄️',
+    items: [
+      'MyBatis, JPA 소스 분석을 통해 데이터기능 자동 추출',
+      '내부 논리파일(ILF) 및 외부 연계파일(EIF) 자동 식별',
+    ],
+  },
+  {
+    key: 'transaction',
+    title: '트랜잭션 기능',
+    icon: '⚙️',
+    items: [
+      '소스 코드 주석 및 쿼리 구문 분석을 통한 자동 산출',
+      'EI(외부 입력), EO(외부 출력), EQ(외부 조회) 정량적 산출',
+    ],
+  },
+  {
+    key: 'report',
+    title: '결과 보고서',
+    icon: '📄',
+    items: [
+      '소스코드 기반 산정 결과를 분석하여 전문보고서 생성',
+      'SW개발비 산출 내역 등 표준 양식 자동 출력',
+    ],
+  },
+];
+
+const FP_SCOPE = [
+  {
+    category: '데이터 기능',
+    color: '#1a56b0',
+    items: ['내부 논리파일 (ILF)', '외부 연계파일 (EIF)'],
+  },
+  {
+    category: '트랜잭션 기능',
+    color: '#2e7d32',
+    items: ['외부 입력 (EI)', '외부 출력 (EO)', '외부 조회 (EQ)'],
+  },
 ];
 
 const PROCESS = [
-  { step: '01', title: '문서 업로드', desc: '요구사항 정의서, 기능 명세서 등을 업로드', icon: '📤' },
-  { step: '02', title: 'AI 분석', desc: 'AI가 기능 항목을 자동으로 식별하고 분류', icon: '🤖' },
-  { step: '03', title: '검토 및 조정', desc: '전문가가 AI 결과를 검토하고 필요시 수정', icon: '👨‍💼' },
-  { step: '04', title: '보고서 생성', desc: '표준 기능점수 산정서 및 사업 규모 산출서 발행', icon: '📄' },
-];
-
-const STANDARDS = [
-  { name: 'IFPUG', desc: '국제기능점수사용자그룹 표준 지원' },
-  { name: 'NESMA', desc: '네덜란드 SW메트릭협회 표준 지원' },
-  { name: '간이법', desc: '행정안전부 간이 기능점수 산정 방법 지원' },
-  { name: 'FPA', desc: '기능점수 분석 방법론 완전 지원' },
+  { step: '01', title: '소스코드 업로드', desc: 'Java, MyBatis, JPA 등 소스코드 및 쿼리 파일 업로드', icon: '📤' },
+  { step: '02', title: '자동 분석', desc: '주석·쿼리 구문 파싱 → 데이터·트랜잭션 기능 자동 분류', icon: '🔍' },
+  { step: '03', title: '검토 및 조정', desc: '전문가가 산정 결과를 검토하고 필요 시 수정', icon: '👨‍💼' },
+  { step: '04', title: '보고서 출력', desc: 'FP 산정서, SW개발비 산출 내역 등 전문보고서 생성', icon: '📋' },
 ];
 
 const COMPARE = [
-  { item: '산정 시간', before: '수일 ~ 수주', after: '수 시간 이내', better: true },
-  { item: '산정 정확도', before: '전문가별 편차 존재', after: 'AI 표준화로 일관성 확보', better: true },
-  { item: '비용', before: '높은 인건비', after: '자동화로 대폭 절감', better: true },
-  { item: '추적 관리', before: '수동 관리 (오류 위험)', after: '자동 이력 관리', better: true },
-  { item: '보고서 생성', before: '수작업 (오래 걸림)', after: '원클릭 자동 생성', better: true },
+  { item: '산정 방식', before: '수동 문서 분석', after: '소스코드 자동 파싱' },
+  { item: '데이터 기능 식별', before: '전문가 수작업', after: 'MyBatis/JPA 분석 자동화' },
+  { item: '트랜잭션 기능 식별', before: '수동 코드 리뷰', after: '주석·쿼리 구문 자동 추출' },
+  { item: '산정 시간', before: '수일 ~ 수주', after: '수 시간 이내' },
+  { item: '보고서 생성', before: '수작업 작성', after: '원클릭 자동 생성' },
 ];
 
 export default function FPCode() {
@@ -39,29 +66,29 @@ export default function FPCode() {
   return (
     <div>
       <PageHeader
-        title="FP Code"
-        subtitle="한길정보기술이 자체 개발한 AI 기반 기능점수(Function Point) 산정 솔루션"
-        breadcrumbs={[{ label: '솔루션' }, { label: 'FP Code' }]}
+        title="FP Code Analyzer"
+        subtitle="소스기반 Function Point(기능점수) 측정 도구"
+        breadcrumbs={[{ label: '솔루션' }, { label: 'FP Code Analyzer' }]}
       />
 
       <section className="page-section">
         <div className="container">
 
-          {/* Hero Section */}
+          {/* Hero */}
           <div className="fp-hero">
             <div className="fp-hero-content">
-              <div className="fp-badge">자체 개발 솔루션</div>
-              <h2 className="fp-hero-title">FP Code</h2>
-              <p className="fp-hero-subtitle">AI Function Point Estimation System</p>
+              <div className="fp-badge">제안사 자체 개발 도구</div>
+              <h2 className="fp-hero-title">FP Code Analyzer</h2>
+              <p className="fp-hero-subtitle">Source-based Function Point Measurement System</p>
               <p className="fp-hero-desc">
-                대한민국 최초로 AI를 접목한 기능점수 산정 솔루션으로,
-                정보시스템 사업 규모 산정의 정확성과 효율성을 혁신적으로 향상시킵니다.
+                소스 코드를 직접 분석하여 데이터 기능과 트랜잭션 기능을 자동으로 추출·산정하는
+                한길정보기술의 자체 개발 기능점수 측정 도구입니다.
               </p>
               <div className="fp-hero-stats">
                 {[
-                  { value: '90%↑', label: '시간 절감' },
-                  { value: '±3%', label: '산정 오차율' },
-                  { value: '50+', label: '도입 기관' },
+                  { value: 'MyBatis', label: 'JPA 분석' },
+                  { value: '5종', label: 'FP 유형 지원' },
+                  { value: '자동화', label: '보고서 생성' },
                 ].map((s) => (
                   <div key={s.label} className="fp-stat">
                     <span className="fp-stat-value">{s.value}</span>
@@ -77,10 +104,8 @@ export default function FPCode() {
             <div className="fp-hero-visual">
               <div className="fp-screen-mock">
                 <div className="fp-mock-titlebar">
-                  <span />
-                  <span />
-                  <span />
-                  <span className="fp-mock-title">FP Code — 기능점수 분석</span>
+                  <span /><span /><span />
+                  <span className="fp-mock-title">FP Code Analyzer — 기능점수 분석</span>
                 </div>
                 <div className="fp-mock-body">
                   <div className="fp-mock-chart">
@@ -88,21 +113,24 @@ export default function FPCode() {
                       <span>기능점수 현황</span>
                       <span>실시간</span>
                     </div>
-                    {['EI', 'EO', 'EQ', 'ILF', 'EIF'].map((type, i) => {
-                      const vals = [35, 28, 20, 42, 15];
-                      return (
-                        <div key={type} style={{ marginBottom: 10 }}>
-                          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: 'rgba(255,255,255,0.7)', marginBottom: 4 }}>
-                            <span>{type}</span>
-                            <span>{vals[i]} FP</span>
-                          </div>
-                          <div style={{ height: 8, background: 'rgba(255,255,255,0.1)', borderRadius: 4, overflow: 'hidden' }}>
-                            <div style={{ height: '100%', width: `${vals[i] / 42 * 100}%`, background: 'linear-gradient(to right, #4da6ff, #80ccff)', borderRadius: 4 }} />
-                          </div>
+                    {[
+                      { type: 'ILF (내부 논리파일)', val: 42, max: 42 },
+                      { type: 'EIF (외부 연계파일)', val: 15, max: 42 },
+                      { type: 'EI (외부 입력)', val: 35, max: 42 },
+                      { type: 'EO (외부 출력)', val: 28, max: 42 },
+                      { type: 'EQ (외부 조회)', val: 20, max: 42 },
+                    ].map((item) => (
+                      <div key={item.type} style={{ marginBottom: 10 }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'rgba(255,255,255,0.65)', marginBottom: 4 }}>
+                          <span>{item.type}</span>
+                          <span>{item.val} FP</span>
                         </div>
-                      );
-                    })}
-                    <div style={{ marginTop: 20, paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.1)', display: 'flex', justifyContent: 'space-between' }}>
+                        <div style={{ height: 7, background: 'rgba(255,255,255,0.1)', borderRadius: 4, overflow: 'hidden' }}>
+                          <div style={{ height: '100%', width: `${item.val / item.max * 100}%`, background: 'linear-gradient(to right, #4da6ff, #80ccff)', borderRadius: 4 }} />
+                        </div>
+                      </div>
+                    ))}
+                    <div style={{ marginTop: 16, paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.1)', display: 'flex', justifyContent: 'space-between' }}>
                       <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)' }}>총 기능점수</span>
                       <span style={{ fontSize: '1.1rem', fontWeight: 800, color: '#80ccff' }}>140 FP</span>
                     </div>
@@ -115,9 +143,9 @@ export default function FPCode() {
           {/* Tabs */}
           <div className="fp-tabs">
             {[
-              { key: 'features', label: '주요 기능' },
+              { key: 'features', label: '주요 특징' },
+              { key: 'scope', label: '적용 범위' },
               { key: 'process', label: '동작 방식' },
-              { key: 'standards', label: '지원 표준' },
               { key: 'compare', label: '도입 효과' },
             ].map((tab) => (
               <button
@@ -130,21 +158,96 @@ export default function FPCode() {
             ))}
           </div>
 
-          {/* Tab Content */}
+          {/* 주요 특징 */}
           {activeTab === 'features' && (
             <div className="fp-tab-content">
-              <div className="grid-3" style={{ gap: 20 }}>
+              <div className="fp-features-grid">
                 {FEATURES.map((f) => (
-                  <div key={f.title} className="fp-feature-card card">
-                    <div className="fp-feature-icon">{f.icon}</div>
-                    <h3 className="fp-feature-title">{f.title}</h3>
-                    <p className="fp-feature-desc">{f.desc}</p>
+                  <div key={f.key} className="fp-feature-card card">
+                    <div className="fp-feature-header">
+                      <span className="fp-feature-icon">{f.icon}</span>
+                      <h3 className="fp-feature-title">{f.title}</h3>
+                    </div>
+                    <ul className="fp-feature-list">
+                      {f.items.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
                   </div>
                 ))}
+              </div>
+
+              <div className="fp-apply-box card" style={{ marginTop: 32 }}>
+                <div className="fp-apply-badge">적용 방안</div>
+                <h3 className="fp-apply-title">제안사 기술연구소 자체 개발 점검 도구 (FP Code Analyzer)</h3>
+                <p className="fp-apply-desc">
+                  감리 수행 시 소스코드를 직접 업로드하여 기능점수를 자동으로 산정하고,
+                  산정 결과를 기반으로 SW개발비 적정성 검토 및 전문 보고서를 즉시 생성합니다.
+                </p>
+                <div className="fp-apply-tags">
+                  {['Java 소스 분석', 'MyBatis XML', 'JPA Entity', '쿼리 구문 파싱', '보고서 자동화'].map(tag => (
+                    <span key={tag} className="fp-tech-tag">{tag}</span>
+                  ))}
+                </div>
               </div>
             </div>
           )}
 
+          {/* 적용 범위 */}
+          {activeTab === 'scope' && (
+            <div className="fp-tab-content">
+              <p className="section-subtitle" style={{ marginBottom: 32 }}>
+                기능점수(FP)는 데이터 기능과 트랜잭션 기능으로 구성되며, FP Code Analyzer는 5가지 유형 모두를 자동으로 측정합니다.
+              </p>
+              <div className="fp-scope-diagram">
+                <div className="fp-scope-root">
+                  <div className="fp-scope-root-label">기능점수 (FP)</div>
+                </div>
+                <div className="fp-scope-branches">
+                  {FP_SCOPE.map((branch) => (
+                    <div key={branch.category} className="fp-scope-branch">
+                      <div className="fp-scope-branch-connector" />
+                      <div className="fp-scope-category" style={{ borderColor: branch.color, color: branch.color }}>
+                        {branch.category}
+                      </div>
+                      <div className="fp-scope-items">
+                        {branch.items.map(item => (
+                          <div key={item} className="fp-scope-item" style={{ borderColor: branch.color }}>
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div style={{ overflowX: 'auto', marginTop: 40 }}>
+                <table className="fp-compare-table">
+                  <thead>
+                    <tr><th>FP 유형</th><th>분류</th><th>분석 방법</th></tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { type: 'ILF (내부 논리파일)', cat: '데이터 기능', method: 'JPA Entity, MyBatis resultMap 분석' },
+                      { type: 'EIF (외부 연계파일)', cat: '데이터 기능', method: '외부 API 연동 및 연계 테이블 분석' },
+                      { type: 'EI (외부 입력)', cat: '트랜잭션 기능', method: 'INSERT/UPDATE 쿼리 및 주석 파싱' },
+                      { type: 'EO (외부 출력)', cat: '트랜잭션 기능', method: 'SELECT 결과 가공 로직 분석' },
+                      { type: 'EQ (외부 조회)', cat: '트랜잭션 기능', method: 'SELECT 단순 조회 쿼리 파싱' },
+                    ].map(row => (
+                      <tr key={row.type}>
+                        <td style={{ fontWeight: 600 }}>{row.type}</td>
+                        <td>{row.cat}</td>
+                        <td style={{ fontSize: '0.85rem', color: 'var(--text-mid)' }}>{row.method}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* 동작 방식 */}
           {activeTab === 'process' && (
             <div className="fp-tab-content">
               <div className="fp-process">
@@ -161,9 +264,9 @@ export default function FPCode() {
                 ))}
               </div>
               <div className="fp-tech-stack">
-                <h3 className="fp-tech-title">적용 기술</h3>
+                <h3 className="fp-tech-title">분석 지원 기술 스택</h3>
                 <div className="fp-tech-tags">
-                  {['NLP (자연어 처리)', 'Transformer', 'Fine-tuned LLM', 'Python', 'Spring Boot', 'React', 'PostgreSQL', 'Docker / K8s'].map((tech) => (
+                  {['Java', 'MyBatis XML', 'JPA / Hibernate', 'Spring Boot', 'SQL 쿼리 파싱', '소스 주석 분석', 'React', 'PostgreSQL'].map((tech) => (
                     <span key={tech} className="fp-tech-tag">{tech}</span>
                   ))}
                 </div>
@@ -171,29 +274,7 @@ export default function FPCode() {
             </div>
           )}
 
-          {activeTab === 'standards' && (
-            <div className="fp-tab-content">
-              <div className="grid-4" style={{ gap: 20 }}>
-                {STANDARDS.map((s) => (
-                  <div key={s.name} className="fp-std-card card" style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '2.5rem', fontWeight: 900, color: 'var(--text-dark)', marginBottom: 8 }}>{s.name}</div>
-                    <div style={{ fontSize: '0.85rem', color: 'var(--text-mid)' }}>{s.desc}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="fp-cert-box card" style={{ marginTop: 32 }}>
-                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-dark)', marginBottom: 12 }}>인증 및 특허</h3>
-                <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-                  {['특허 등록 (제10-XXXXXXX호)', 'GS 인증 (1등급)', '공공기관 도입 실적 50+ 건'].map((cert) => (
-                    <span key={cert} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '6px 14px', background: 'var(--bg-light)', color: 'var(--text-dark)', borderRadius: 2, fontSize: '0.84rem', fontWeight: 600, border: '1px solid var(--border)' }}>
-                      {cert}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-
+          {/* 도입 효과 */}
           {activeTab === 'compare' && (
             <div className="fp-tab-content">
               <div style={{ overflowX: 'auto' }}>
@@ -202,7 +283,7 @@ export default function FPCode() {
                     <tr>
                       <th>항목</th>
                       <th>기존 방식</th>
-                      <th>FP Code 도입 후</th>
+                      <th>FP Code Analyzer 도입 후</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -210,9 +291,7 @@ export default function FPCode() {
                       <tr key={row.item}>
                         <td style={{ fontWeight: 600 }}>{row.item}</td>
                         <td style={{ color: 'var(--text-light)' }}>{row.before}</td>
-                        <td>
-                          <span style={{ color: 'var(--text-dark)', fontWeight: 600 }}>✓ {row.after}</span>
-                        </td>
+                        <td><span style={{ color: 'var(--text-dark)', fontWeight: 600 }}>✓ {row.after}</span></td>
                       </tr>
                     ))}
                   </tbody>
@@ -224,11 +303,11 @@ export default function FPCode() {
                 <div className="grid-3" style={{ gap: 1, background: 'var(--border)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', overflow: 'hidden' }}>
                   {[
                     { value: '90%', label: '산정 시간 단축' },
-                    { value: '60%', label: '비용 절감' },
-                    { value: '97%', label: '고객 만족도' },
+                    { value: '자동화', label: '보고서 생성' },
+                    { value: '5종', label: 'FP 유형 지원' },
                   ].map((r) => (
                     <div key={r.label} style={{ textAlign: 'center', padding: 32, background: 'white' }}>
-                      <div style={{ fontSize: '2.4rem', fontWeight: 900, color: 'var(--text-dark)', marginBottom: 6, letterSpacing: '-0.03em' }}>{r.value}</div>
+                      <div style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--text-dark)', marginBottom: 6, letterSpacing: '-0.03em' }}>{r.value}</div>
                       <div style={{ fontSize: '0.82rem', color: 'var(--text-light)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{r.label}</div>
                     </div>
                   ))}
@@ -239,15 +318,16 @@ export default function FPCode() {
 
           {/* CTA */}
           <div className="fp-cta">
-            <h2>FP Code 도입 문의</h2>
+            <h2>FP Code Analyzer 도입 문의</h2>
             <p>무료 데모와 상세 설명회를 신청하시면 전문가가 직접 방문하여 안내해 드립니다.</p>
             <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
               <button className="btn-primary" style={{ padding: '14px 40px', fontSize: '1rem' }}>데모 신청하기</button>
               <button className="btn-outline" style={{ padding: '14px 40px', fontSize: '1rem', borderColor: 'rgba(255,255,255,0.5)', color: 'white' }}>
-                02-0000-0000
+                상담 문의하기
               </button>
             </div>
           </div>
+
         </div>
       </section>
     </div>

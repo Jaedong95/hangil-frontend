@@ -26,7 +26,8 @@ import ProcedureStandards from './pages/procedure/ProcedureStandards';
 import ProcedureQuality from './pages/procedure/ProcedureQuality';
 
 // 대가 산정
-import Pricing from './pages/pricing/Pricing';
+import PricingInfo from './pages/pricing/PricingInfo';
+import PricingCalc from './pages/pricing/PricingCalc';
 
 // 솔루션
 import FPCode from './pages/solutions/FPCode';
@@ -63,7 +64,9 @@ function App() {
           <Route path="/procedure/quality" element={<ProcedureQuality />} />
 
           {/* 대가 산정 */}
-          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/pricing/info" element={<PricingInfo />} />
+          <Route path="/pricing/calculator" element={<PricingCalc />} />
+          <Route path="/pricing" element={<Navigate to="/pricing/info" />} />
 
           {/* 솔루션 */}
           <Route path="/solutions/fpcode" element={<FPCode />} />

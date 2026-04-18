@@ -283,7 +283,7 @@
   font-size: 1.4rem;
 }
 
-.client-name { font-size: 0.8rem; font-weight: 600; color: var(--text-mid); }
+.client-name { font-size: 0.8rem; font-weight: 600; color: var(--text-mid); word-break: keep-all; }
 
 /* Performance */
 .perf-stats {

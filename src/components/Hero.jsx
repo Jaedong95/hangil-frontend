@@ -49,7 +49,7 @@ const SERVICES = [
 const WHY_ITEMS = [
   { num: '01', title: '대한민국 최초 AI 감리', desc: 'AI 기술을 접목한 차세대 감리 플랫폼으로 정확성과 효율을 동시에 달성합니다.' },
   { num: '02', title: '다양한 분야의 전문 인력', desc: '수석감리원·기술사·AI 전문가·클라우드·데이터 등 각 분야 자격 보유 전문가가 함께합니다.' },
-  { num: '03', title: '자체 개발 솔루션', desc: 'FP Code 솔루션으로 기능점수 산정 자동화를 실현하고 객관성을 보장합니다.' },
+  { num: '03', title: '자체 개발 솔루션', desc: 'FP Code Analyzer으로 기능점수 산정 자동화를 실현하고 객관성을 보장합니다.' },
   { num: '04', title: '법적 요건 완전 충족', desc: '전자정부법 등 관련 법규에 따른 의무 감리 요건을 빈틈없이 충족시킵니다.' },
 ];
 
@@ -69,7 +69,7 @@ export default function Hero() {
     <main ref={ref} style={{ paddingTop: '72px' }}>
 
       {/* ── Hero ── */}
-      <section className="hero-section">
+      <section className="hero-section" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/hero-bg.png)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="hero-overlay" />
         <div className="container hero-inner">
           <div className="hero-left">
@@ -108,7 +108,7 @@ export default function Hero() {
                   </svg>
                 </div>
                 <div>
-                  <div className="hic-title">FP Code 솔루션</div>
+                  <div className="hic-title">FP Code Analyzer</div>
                   <div className="hic-sub">기능점수 자동 산정 · 특허 등록 완료</div>
                 </div>
               </div>
@@ -184,7 +184,7 @@ export default function Hero() {
           <div className="fpcode-teaser fade-up">
             <div className="fpt-left">
               <div className="fpt-badge">특허 등록 솔루션</div>
-              <h3 className="fpt-title">FP Code</h3>
+              <h3 className="fpt-title">FP Code Analyzer</h3>
               <p className="fpt-sub">AI Function Point Estimation System</p>
               <p className="fpt-desc">
                 자연어 처리(NLP) 기반으로 요구사항 문서를 자동 분석하여 기능점수(Function Point)를 정확하게 산정합니다.
@@ -199,7 +199,7 @@ export default function Hero() {
               <div className="fpt-mockup">
                 <div className="fpt-mock-bar">
                   <span /><span /><span />
-                  <span className="fpt-mock-title">FP Code — 기능점수 분석</span>
+                  <span className="fpt-mock-title">FP Code Analyzer — 기능점수 분석</span>
                 </div>
                 <div className="fpt-mock-body">
                   <div className="fpt-mock-label">기능점수 분석 결과</div>

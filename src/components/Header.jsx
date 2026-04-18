@@ -38,14 +38,16 @@ const NAV_ITEMS = [
   {
     label: '대가 산정',
     key: 'pricing',
-    path: '/pricing',
-    children: [],
+    children: [
+      { label: '대가 산정 안내', path: '/pricing/info' },
+      { label: '대가 산정 계산기', path: '/pricing/calculator' },
+    ],
   },
   {
     label: '솔루션',
     key: 'solutions',
     children: [
-      { label: 'FP Code', path: '/solutions/fpcode' },
+      { label: 'FP Code Analyzer', path: '/solutions/fpcode' },
       { label: '추가 예정', path: '#', disabled: true },
     ],
   },

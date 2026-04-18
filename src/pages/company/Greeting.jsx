@@ -32,7 +32,7 @@ export default function Greeting() {
                 기존 감리의 한계를 뛰어넘는 새로운 패러다임을 제시합니다.
               </p>
               <p>
-                자체 개발한 <strong>FP Code 솔루션</strong>을 통해 기능점수 산정의 정확성을 높이고,
+                자체 개발한 <strong>FP Code Analyzer</strong>을 통해 기능점수 산정의 정확성을 높이고,
                 객관적이고 투명한 사업 규모 산정 서비스를 제공합니다. 이를 통해 발주기관과 사업자 모두
                 신뢰할 수 있는 감리 결과를 도출합니다.
               </p>
@@ -63,7 +63,7 @@ export default function Greeting() {
               { label: '소재지', value: '서울특별시 마포구 월드컵로 196, 비 105-씨 79호 (성산동)' },
               { label: '전화번호', value: '010-3462-7817' },
               { label: '해당부문 종사기간', value: '2025.08 ~ 현재' },
-              { label: '자체 솔루션', value: 'FP Code (기능점수 산정 솔루션)' },
+              { label: '자체 솔루션', value: 'FP Code Analyzer (기능점수 산정 솔루션)' },
             ].map((item) => (
               <div key={item.label} className="overview-row">
                 <span className="overview-label">{item.label}</span>

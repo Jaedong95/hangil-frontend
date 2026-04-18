@@ -33,7 +33,7 @@ const LINKS = [
   {
     title: '솔루션 & 기타',
     items: [
-      { label: 'FP Code', path: '/solutions/fpcode' },
+      { label: 'FP Code Analyzer', path: '/solutions/fpcode' },
       { label: '대가 산정', path: '/pricing' },
     ],
   },
@@ -45,9 +45,6 @@ export default function Footer() {
       <div className="footer-top">
         <div className="container footer-inner">
           <div className="footer-brand">
-            <Link to="/" className="footer-logo">
-              <img src="/logo.png" alt="HANGIL AI 로고" className="footer-logo-img" />
-            </Link>
             <p className="footer-tagline">
               대한민국 최초 AI를 활용한<br />감리 서비스
             </p>
