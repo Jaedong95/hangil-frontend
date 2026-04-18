@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import heroBg from '../assets/hero-bg.png';
 import './Hero.css';
 
 
@@ -69,7 +70,7 @@ export default function Hero() {
     <main ref={ref} style={{ paddingTop: '72px' }}>
 
       {/* ── Hero ── */}
-      <section className="hero-section" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/hero-bg.png)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <section className="hero-section" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="hero-overlay" />
         <div className="container hero-inner">
           <div className="hero-left">

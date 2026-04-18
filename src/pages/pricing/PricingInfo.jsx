@@ -1,35 +1,8 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
 import { Link } from 'react-router-dom';
+import { COST_ITEMS, DIFFICULTY_FACTORS } from './pricingConstants';
 import './Pricing.css';
-
-const COST_ITEMS = [
-  { key: 'sw', label: '소프트웨어 개발비 및 유지보수비, 정보시스템 운영 용역비', rate: 1.000 },
-  { key: 'hw', label: '하드웨어·소프트웨어 구입비 및 유지보수비', rate: 0.456 },
-  { key: 'db', label: '지식정보자원·행정정보 등 데이터베이스 구축비', rate: 0.422 },
-  { key: 'etc', label: '기타 전산 설비·시설물 공사·이전·임차, 센서·단말장치 설치비, 통신회선·전기 사용료, 재료비 등', rate: 0.000 },
-];
-
-const DIFFICULTY_FACTORS = [
-  {
-    key: 'tech',
-    label: '신기술 적용 수준',
-    levels: [
-      { label: '보통', desc: '감리대상사업 및 감리 점검의 복잡성을 증가시키는 주요 신기술이 적용되지 않은 경우', value: 0 },
-      { label: '복잡', desc: '감리대상사업 및 감리 점검의 복잡성을 증가시키는 주요 신기술이 1개가 적용된 경우', value: 0.05 },
-      { label: '매우복잡', desc: '감리대상사업 및 감리 점검의 복잡성을 증가시키는 서로 다른 분야의 주요 신기술이 2개 이상 적용된 경우', value: 0.10 },
-    ],
-  },
-  {
-    key: 'region',
-    label: '감리현장 지역 다중성',
-    levels: [
-      { label: '보통', desc: '점검활동이 수행되는 감리현장이 단일 지역인 경우', value: 0 },
-      { label: '복잡', desc: '점검활동이 수행되는 감리현장이 2~3개 지역인 경우', value: 0.05 },
-      { label: '매우복잡', desc: '점검활동이 수행되는 감리현장이 4개 지역 이상인 경우', value: 0.10 },
-    ],
-  },
-];
 
 export default function PricingInfo() {
   return (
@@ -37,7 +10,6 @@ export default function PricingInfo() {
       <PageHeader
         title="대가 산정 안내"
         subtitle="정보시스템 감리 대가 산정 기준 및 산정 방법을 안내합니다."
-        breadcrumbs={[{ label: '대가 산정' }, { label: '대가 산정 안내' }]}
       />
 
       <section className="page-section">

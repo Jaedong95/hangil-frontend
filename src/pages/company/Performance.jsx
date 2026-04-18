@@ -64,7 +64,6 @@ export default function Performance() {
       <PageHeader
         title="감리 실적"
         subtitle="한길에이아이가 수행한 공공기관 정보시스템 감리 실적입니다."
-        breadcrumbs={[{ label: '회사 소개' }, { label: '감리 실적' }]}
       />
 
       <section className="page-section">

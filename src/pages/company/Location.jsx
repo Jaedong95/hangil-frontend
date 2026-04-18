@@ -8,7 +8,6 @@ export default function Location() {
       <PageHeader
         title="오시는 길"
         subtitle="한길에이아이를 방문하시는 방법을 안내해 드립니다."
-        breadcrumbs={[{ label: '회사 소개' }, { label: '오시는 길' }]}
       />
       <section className="page-section">
         <div className="container">

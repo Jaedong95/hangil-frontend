@@ -1,48 +1,19 @@
 import React, { useState } from 'react';
 import PageHeader from '../../components/PageHeader';
 import { Link } from 'react-router-dom';
+import {
+  IT_AVG_WAGE_DEFAULT, FP_UNIT_PRICE_DEFAULT,
+  EXPENSE_RATE, TECH_FEE_RATE, VAT_RATE,
+  AUDIT_STAGE_COEFF, COST_ITEMS, DIFFICULTY_FACTORS,
+} from './pricingConstants';
 import './Pricing.css';
-
-const DEFAULT_IT_AVG_WAGE = 7920000;
-const DEFAULT_FP_UNIT_PRICE = 547000;
-const EXPENSE_RATE = 1.10;
-const TECH_FEE_RATE = 0.20;
-const VAT_RATE = 0.10;
-
-const COST_ITEMS = [
-  { key: 'sw', shortLabel: 'SW 개발·유지보수·운영 용역비', label: '소프트웨어 개발비 및 유지보수비, 정보시스템 운영 용역비', rate: 1.000 },
-  { key: 'hw', shortLabel: 'HW·SW 구입 및 유지보수비', label: '하드웨어·소프트웨어 구입비 및 유지보수비', rate: 0.456 },
-  { key: 'db', shortLabel: 'DB 구축비', label: '지식정보자원·행정정보 등 데이터베이스 구축비', rate: 0.422 },
-  { key: 'etc', shortLabel: '기타 전산설비·시설 등', label: '기타 전산 설비·시설물 공사·이전·임차, 센서·단말장치 설치비, 통신회선·전기 사용료, 재료비 등', rate: 0.000 },
-];
-
-const DIFFICULTY_FACTORS = [
-  {
-    key: 'tech',
-    label: '신기술 적용 수준',
-    levels: [
-      { label: '보통', desc: '주요 신기술이 적용되지 않은 경우', value: 0 },
-      { label: '복잡', desc: '주요 신기술이 1개 적용된 경우', value: 0.05 },
-      { label: '매우복잡', desc: '서로 다른 분야의 주요 신기술이 2개 이상 적용된 경우', value: 0.10 },
-    ],
-  },
-  {
-    key: 'region',
-    label: '감리현장 지역 다중성',
-    levels: [
-      { label: '보통', desc: '감리현장이 단일 지역인 경우', value: 0 },
-      { label: '복잡', desc: '감리현장이 2~3개 지역인 경우', value: 0.05 },
-      { label: '매우복잡', desc: '감리현장이 4개 지역 이상인 경우', value: 0.10 },
-    ],
-  },
-];
 
 export default function PricingCalc() {
   const [costs, setCosts] = useState({ sw: '', hw: '', db: '', etc: '' });
   const [auditStage, setAuditStage] = useState('3');
   const [difficulty, setDifficulty] = useState({ tech: 0, region: 0 });
-  const [itWage, setItWage] = useState(DEFAULT_IT_AVG_WAGE);
-  const [fpPrice, setFpPrice] = useState(DEFAULT_FP_UNIT_PRICE);
+  const [itWage, setItWage] = useState(IT_AVG_WAGE_DEFAULT);
+  const [fpPrice, setFpPrice] = useState(FP_UNIT_PRICE_DEFAULT);
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [result, setResult] = useState(null);
 
@@ -60,7 +31,7 @@ export default function PricingCalc() {
     }, 0);
     if (correctedAmount <= 0) return;
 
-    const coeff = auditStage === '3' ? 0.9307 : 0.8516;
+    const coeff = AUDIT_STAGE_COEFF[auditStage];
     const baseFee = coeff * itWage * Math.pow(correctedAmount / fpPrice, 0.6335)
       * (1 + EXPENSE_RATE) * (1 + TECH_FEE_RATE);
 
@@ -88,7 +59,6 @@ export default function PricingCalc() {
       <PageHeader
         title="대가 산정 계산기"
         subtitle="감리대상사업비를 입력하면 기본감리비를 자동으로 산출합니다."
-        breadcrumbs={[{ label: '대가 산정' }, { label: '대가 산정 계산기' }]}
       />
 
       <section className="page-section">

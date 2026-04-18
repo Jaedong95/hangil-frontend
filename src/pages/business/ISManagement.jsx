@@ -91,7 +91,6 @@ export default function ISManagement() {
       <PageHeader
         title="정보시스템 감리"
         subtitle="AI와 전문 감리사가 함께, 사업의 성공을 끝까지 책임집니다."
-        breadcrumbs={[{ label: '사업 분야' }, { label: '정보시스템 감리' }]}
       />
 
       <section className="page-section">

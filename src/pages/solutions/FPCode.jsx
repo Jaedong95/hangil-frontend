@@ -68,7 +68,6 @@ export default function FPCode() {
       <PageHeader
         title="FP Code Analyzer"
         subtitle="소스기반 Function Point(기능점수) 측정 도구"
-        breadcrumbs={[{ label: '솔루션' }, { label: 'FP Code Analyzer' }]}
       />
 
       <section className="page-section">

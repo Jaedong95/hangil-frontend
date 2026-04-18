@@ -91,7 +91,6 @@ export default function Consulting() {
       <PageHeader
         title="정보시스템 컨설팅"
         subtitle="BPR/ISP, ISMP, 데이터 컨설팅 등 종합적인 IT 컨설팅 서비스를 제공합니다."
-        breadcrumbs={[{ label: '사업 분야' }, { label: '정보시스템 컨설팅' }]}
       />
 
       <section className="page-section">

@@ -17,7 +17,6 @@ export default function History() {
       <PageHeader
         title="회사 연혁"
         subtitle="한길에이아이의 성장 발자취를 소개합니다."
-        breadcrumbs={[{ label: '회사 소개' }, { label: '회사 연혁' }]}
       />
       <section className="page-section">
         <div className="container" style={{ maxWidth: 800 }}>

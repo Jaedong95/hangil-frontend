@@ -52,7 +52,6 @@ export default function Clients() {
       <PageHeader
         title="주요 고객사"
         subtitle="다양한 분야의 기관과 함께 신뢰받는 감리 서비스를 제공합니다."
-        breadcrumbs={[{ label: '회사 소개' }, { label: '주요 고객사' }]}
       />
       <section className="page-section">
         <div className="container">

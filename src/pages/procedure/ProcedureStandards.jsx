@@ -44,7 +44,6 @@ export default function ProcedureStandards() {
       <PageHeader
         title="감리 기준"
         subtitle="감리 업무 내용과 수행 형태를 안내합니다."
-        breadcrumbs={[{ label: '감리정보' }, { label: '감리 기준' }]}
       />
 
       <section className="page-section">

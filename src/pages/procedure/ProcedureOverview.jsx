@@ -87,7 +87,6 @@ export default function ProcedureOverview() {
       <PageHeader
         title="정보시스템 감리 개요"
         subtitle="감리의 정의, 대상, 기대효과를 안내합니다."
-        breadcrumbs={[{ label: '감리정보' }, { label: '개요' }]}
       />
 
       <section className="page-section">

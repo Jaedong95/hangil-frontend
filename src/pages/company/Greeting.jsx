@@ -8,7 +8,6 @@ export default function Greeting() {
       <PageHeader
         title="인사말"
         subtitle="한길에이아이를 찾아주셔서 감사합니다."
-        breadcrumbs={[{ label: '회사 소개' }, { label: '인사말' }]}
       />
 
       <section className="page-section">

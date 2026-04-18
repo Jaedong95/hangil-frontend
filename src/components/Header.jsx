@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/logo.png';
 import './Header.css';
 
 const NAV_ITEMS = [
@@ -80,7 +81,7 @@ export default function Header() {
     <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-inner container">
         <Link to="/" className="logo">
-          <img src="/logo.png" alt="HANGIL AI 로고" className="logo-img" />
+          <img src={logo} alt="HANGIL AI 로고" className="logo-img" />
         </Link>
 
         <nav className="main-nav">

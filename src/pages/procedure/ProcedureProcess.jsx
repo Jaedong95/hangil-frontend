@@ -102,7 +102,6 @@ export default function ProcedureProcess() {
       <PageHeader
         title="감리 수행절차"
         subtitle="한길에이아이의 체계적인 감리 수행 절차와 품질보증 활동을 안내합니다."
-        breadcrumbs={[{ label: '감리정보' }, { label: '감리 수행절차' }]}
       />
 
       <section className="page-section">
