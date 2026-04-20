@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import heroBg from '../assets/hero-bg.png';
+import ContactModal from './ContactModal';
 import './Hero.css';
 
 
@@ -56,6 +57,7 @@ const WHY_ITEMS = [
 
 export default function Hero() {
   const ref = useRef(null);
+  const [showContact, setShowContact] = useState(false);
 
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -67,6 +69,7 @@ export default function Hero() {
   }, []);
 
   return (
+    <>
     <main ref={ref} style={{ paddingTop: '72px' }}>
 
       {/* ── Hero ── */}
@@ -193,7 +196,7 @@ export default function Hero() {
               </p>
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 <Link to="/solutions/fpcode" className="btn-primary">솔루션 상세 보기</Link>
-                <Link to="/pricing" className="btn-outline">견적 문의</Link>
+                <button className="btn-outline" onClick={() => setShowContact(true)}>상담 문의하기 (견적서 요청)</button>
               </div>
             </div>
             <div className="fpt-right">
@@ -231,5 +234,8 @@ export default function Hero() {
       </section>
 
     </main>
+
+    {showContact && <ContactModal onClose={() => setShowContact(false)} />}
+    </>
   );
 }

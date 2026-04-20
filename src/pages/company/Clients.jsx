@@ -2,46 +2,73 @@ import React from 'react';
 import PageHeader from '../../components/PageHeader';
 import './Company.css';
 
+import logo행정안전부 from '../../assets/mois.png';
+import logo관세청 from '../../assets/customs.png';
+import logo해양수산부 from '../../assets/mof.png';
+import logo산림청 from '../../assets/forest.png';
+import logo산림청국립산림과학원 from '../../assets/nifos.png';
+import logo문화재청 from '../../assets/cha.png';
+import logo환경부 from '../../assets/me.png';
+import logo환경부온실가스 from '../../assets/gir.png';
+import logo국립장애인도서관 from '../../assets/nlid.jpeg';
+import logo울산광역시교육청 from '../../assets/ulsan-edu.png';
+import logo인천강화군 from '../../assets/ganghwa.svg';
+import logo경주시 from '../../assets/gyeongju.png';
+import logo양양군 from '../../assets/yangyang.jpeg';
+import logo한국지능정보사회진흥원 from '../../assets/nia.png';
+import logo한국문화정보원 from '../../assets/kcisa.png';
+import logo한국환경공단 from '../../assets/keco.jpeg';
+import logo한국과학창의재단 from '../../assets/kofac.jpeg';
+import logo울산광역시도시공사 from '../../assets/ulsan-urban.png';
+import logo울산문화관광재단 from '../../assets/ulsan-culture.png';
+import logo한국부동산원 from '../../assets/kab.png';
+import logo한국골재산업연구원 from '../../assets/kaafi.png';
+import logo인천스마트시티 from '../../assets/incheon-smart.png';
+import logo도로교통공단 from '../../assets/koroad.png';
+import logo한국교통연구원 from '../../assets/koti.png';
+import logo인공지능산업융합사업단 from '../../assets/aica.png';
+import logo국립공원공단 from '../../assets/knps.png';
+
 const CLIENT_CATEGORIES = [
   {
     category: '중앙정부·공공기관',
     clients: [
-      { name: '행정안전부', icon: '🏛️' },
-      { name: '관세청', icon: '📦' },
-      { name: '해양수산부', icon: '🌊' },
-      { name: '산림청', icon: '🌲' },
-      { name: '산림청 국립산림과학원', icon: '🔬' },
-      { name: '문화재청', icon: '🏯' },
-      { name: '환경부', icon: '🌿' },
-      { name: '환경부 온실가스종합정보센터', icon: '🌡️' },
-      { name: '문화체육관광부 국립장애인도서관', icon: '📚' },
+      { name: '행정안전부', logo: logo행정안전부 },
+      { name: '관세청', logo: logo관세청 },
+      { name: '해양수산부', logo: logo해양수산부 },
+      { name: '산림청', logo: logo산림청 },
+      { name: '산림청 국립산림과학원', logo: logo산림청국립산림과학원 },
+      { name: '문화재청', logo: logo문화재청 },
+      { name: '환경부', logo: logo환경부 },
+      { name: '환경부 온실가스종합정보센터', logo: logo환경부온실가스 },
+      { name: '문화체육관광부 국립장애인도서관', logo: logo국립장애인도서관 },
     ],
   },
   {
     category: '지방자치단체',
     clients: [
-      { name: '울산광역시교육청', icon: '🎓' },
-      { name: '인천광역시 강화군', icon: '🏝️' },
-      { name: '경상북도 경주시', icon: '🏛️' },
-      { name: '강원도 양양군', icon: '🏔️' },
+      { name: '울산광역시교육청', logo: logo울산광역시교육청 },
+      { name: '인천광역시 강화군', logo: logo인천강화군 },
+      { name: '경상북도 경주시', logo: logo경주시 },
+      { name: '강원도 양양군', logo: logo양양군 },
     ],
   },
   {
     category: '공기업·준정부기관',
     clients: [
-      { name: '한국지능정보사회진흥원', icon: '💻' },
-      { name: '한국문화정보원', icon: '🎨' },
-      { name: '한국환경공단', icon: '♻️' },
-      { name: '한국과학창의재단', icon: '🔭' },
-      { name: '울산광역시도시공사', icon: '🏗️' },
-      { name: '재단법인울산문화관광재단', icon: '🎭' },
-      { name: '한국부동산원 서울사무소', icon: '🏢' },
-      { name: '한국골재산업연구원', icon: '⛏️' },
-      { name: '인천스마트시티', icon: '🏙️' },
-      { name: '도로교통공단', icon: '🚦' },
-      { name: '한국교통연구원', icon: '🚌' },
-      { name: '인공지능산업융합사업단', icon: '🤖' },
-      { name: '국립공원공단', icon: '🏕️' },
+      { name: '한국지능정보사회진흥원', logo: logo한국지능정보사회진흥원 },
+      { name: '한국문화정보원', logo: logo한국문화정보원 },
+      { name: '한국환경공단', logo: logo한국환경공단 },
+      { name: '한국과학창의재단', logo: logo한국과학창의재단 },
+      { name: '울산광역시도시공사', logo: logo울산광역시도시공사 },
+      { name: '재단법인울산문화관광재단', logo: logo울산문화관광재단 },
+      { name: '한국부동산원 서울사무소', logo: logo한국부동산원 },
+      { name: '한국골재산업연구원', logo: logo한국골재산업연구원 },
+      { name: '인천스마트시티', logo: logo인천스마트시티 },
+      { name: '도로교통공단', logo: logo도로교통공단 },
+      { name: '한국교통연구원', logo: logo한국교통연구원 },
+      { name: '인공지능산업융합사업단', logo: logo인공지능산업융합사업단 },
+      { name: '국립공원공단', logo: logo국립공원공단 },
     ],
   },
 ];
@@ -62,8 +89,9 @@ export default function Clients() {
               <div className="clients-grid">
                 {cat.clients.map((client) => (
                   <div key={client.name} className="client-card">
-                    <div className="client-logo-placeholder">{client.icon}</div>
-                    <span className="client-name">{client.name}</span>
+                    <div className="client-logo-wrap">
+                      <img src={client.logo} alt={client.name} className="client-logo-img" />
+                    </div>
                   </div>
                 ))}
               </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PageHeader from '../../components/PageHeader';
+import ContactModal from '../../components/ContactModal';
 import './Solutions.css';
 
 const FEATURES = [
@@ -62,6 +63,7 @@ const COMPARE = [
 
 export default function FPCode() {
   const [activeTab, setActiveTab] = useState('features');
+  const [showContact, setShowContact] = useState(false);
 
   return (
     <div>
@@ -81,7 +83,7 @@ export default function FPCode() {
               <p className="fp-hero-subtitle">Source-based Function Point Measurement System</p>
               <p className="fp-hero-desc">
                 소스 코드를 직접 분석하여 데이터 기능과 트랜잭션 기능을 자동으로 추출·산정하는
-                한길정보기술의 자체 개발 기능점수 측정 도구입니다.
+                한길에이아이의 자체 개발 기능점수 측정 도구입니다.
               </p>
               <div className="fp-hero-stats">
                 {[
@@ -321,14 +323,20 @@ export default function FPCode() {
             <p>무료 데모와 상세 설명회를 신청하시면 전문가가 직접 방문하여 안내해 드립니다.</p>
             <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
               <button className="btn-primary" style={{ padding: '14px 40px', fontSize: '1rem' }}>데모 신청하기</button>
-              <button className="btn-outline" style={{ padding: '14px 40px', fontSize: '1rem', borderColor: 'rgba(255,255,255,0.5)', color: 'white' }}>
-                상담 문의하기
+              <button
+                className="btn-outline"
+                style={{ padding: '14px 40px', fontSize: '1rem', borderColor: 'rgba(255,255,255,0.5)', color: 'white' }}
+                onClick={() => setShowContact(true)}
+              >
+                상담 문의하기 (견적서 요청)
               </button>
             </div>
           </div>
 
         </div>
       </section>
+
+      {showContact && <ContactModal onClose={() => setShowContact(false)} />}
     </div>
   );
 }

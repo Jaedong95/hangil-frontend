@@ -22,7 +22,7 @@ export default function Greeting() {
             <h2 className="section-title">안녕하십니까,<br />주식회사 한길에이아이 대표이사입니다.</h2>
             <div className="greeting-text">
               <p>
-                한길정보기술은 대한민국 정보시스템 감리 분야에서 20여 년간 쌓아온 전문성을 바탕으로,
+                한길에이아이은 대한민국 정보시스템 감리 분야에서 20여 년간 쌓아온 전문성을 바탕으로,
                 고객의 정보화 사업이 성공적으로 완수될 수 있도록 최선을 다해 지원하고 있습니다.
               </p>
               <p>
@@ -37,7 +37,7 @@ export default function Greeting() {
               </p>
               <p>
                 앞으로도 지속적인 기술 혁신과 서비스 개선을 통해 고객 여러분의 기대에 부응하는
-                한길정보기술이 되겠습니다. 감사합니다.
+                한길에이아이이 되겠습니다. 감사합니다.
               </p>
             </div>
             <div className="greeting-signature">

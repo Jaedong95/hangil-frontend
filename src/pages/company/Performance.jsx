@@ -50,7 +50,10 @@ const PERFORMANCE_DATA = [
   { no: 1, name: '국립공원 디지털트윈 시범사업 감리', date: '2021.12.10', amount: 60270000, org: '국립공원공단' },
 ];
 
-const fmtAmount = (n) => `₩${n.toLocaleString('ko-KR')}`;
+const fmtYear = (date) => {
+  if (date === '진행중') return date;
+  return date.substring(0, 4);
+};
 
 export default function Performance() {
   const [page, setPage] = useState(1);
@@ -73,7 +76,6 @@ export default function Performance() {
           <div className="perf-stats">
             {[
               { value: '45건', label: '총 수행 건수' },
-              { value: '28.4억', label: '총 계약금액' },
               { value: '4년+', label: '공공부문 집중' },
               { value: '100%', label: '공공기관 대상' },
             ].map((s) => (
@@ -94,16 +96,14 @@ export default function Performance() {
               <colgroup>
                 <col style={{ width: '60px' }} />
                 <col />
-                <col style={{ width: '110px' }} />
-                <col style={{ width: '160px' }} />
+                <col style={{ width: '90px' }} />
                 <col style={{ width: '220px' }} />
               </colgroup>
               <thead>
                 <tr>
                   <th>번호</th>
                   <th>사업명</th>
-                  <th>계약일</th>
-                  <th>계약금액</th>
+                  <th>계약년도</th>
                   <th>주관기관</th>
                 </tr>
               </thead>
@@ -115,9 +115,8 @@ export default function Performance() {
                     <td>
                       {row.date === '진행중'
                         ? <span className="perf-badge-active">진행중</span>
-                        : row.date}
+                        : fmtYear(row.date)}
                     </td>
-                    <td className="perf-td-amount">{fmtAmount(row.amount)}</td>
                     <td className="perf-td-org">{row.org}</td>
                   </tr>
                 ))}

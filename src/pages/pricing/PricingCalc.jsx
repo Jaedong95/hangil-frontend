@@ -1,64 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PageHeader from '../../components/PageHeader';
 import { Link } from 'react-router-dom';
-import {
-  IT_AVG_WAGE_DEFAULT, FP_UNIT_PRICE_DEFAULT,
-  EXPENSE_RATE, TECH_FEE_RATE, VAT_RATE,
-  AUDIT_STAGE_COEFF, COST_ITEMS, DIFFICULTY_FACTORS,
-} from './pricingConstants';
 import './Pricing.css';
 
+const FILE_NAME = 'Audit_Cost_Calculator(2025.1)_ver.2.5.xlsx';
+
 export default function PricingCalc() {
-  const [costs, setCosts] = useState({ sw: '', hw: '', db: '', etc: '' });
-  const [auditStage, setAuditStage] = useState('3');
-  const [difficulty, setDifficulty] = useState({ tech: 0, region: 0 });
-  const [itWage, setItWage] = useState(IT_AVG_WAGE_DEFAULT);
-  const [fpPrice, setFpPrice] = useState(FP_UNIT_PRICE_DEFAULT);
-  const [showAdvanced, setShowAdvanced] = useState(false);
-  const [result, setResult] = useState(null);
-
-  const fmt = (n) => Math.round(n).toLocaleString('ko-KR');
-
-  const handleCostChange = (key, value) => {
-    const raw = value.replace(/[^0-9]/g, '');
-    setCosts(prev => ({ ...prev, [key]: raw ? parseInt(raw, 10).toLocaleString('ko-KR') : '' }));
-  };
-
-  const handleCalc = () => {
-    const correctedAmount = COST_ITEMS.reduce((sum, item) => {
-      const raw = parseFloat((costs[item.key] || '0').replace(/,/g, ''));
-      return sum + raw * item.rate;
-    }, 0);
-    if (correctedAmount <= 0) return;
-
-    const coeff = AUDIT_STAGE_COEFF[auditStage];
-    const baseFee = coeff * itWage * Math.pow(correctedAmount / fpPrice, 0.6335)
-      * (1 + EXPENSE_RATE) * (1 + TECH_FEE_RATE);
-
-    const diffSum = difficulty.tech + difficulty.region;
-    const adjustedFee = baseFee * (1 + diffSum);
-    const vat = adjustedFee * VAT_RATE;
-
-    const costBreakdown = COST_ITEMS.map(item => {
-      const raw = parseFloat((costs[item.key] || '0').replace(/,/g, ''));
-      return { ...item, amount: raw, corrected: raw * item.rate };
-    }).filter(item => item.amount > 0);
-
-    setResult({ correctedAmount, baseFee, diffSum, adjustedFee, vat, total: adjustedFee + vat, coeff, costBreakdown });
-  };
-
-  const handleReset = () => {
-    setCosts({ sw: '', hw: '', db: '', etc: '' });
-    setAuditStage('3');
-    setDifficulty({ tech: 0, region: 0 });
-    setResult(null);
-  };
-
   return (
     <div>
       <PageHeader
         title="대가 산정 계산기"
-        subtitle="감리대상사업비를 입력하면 기본감리비를 자동으로 산출합니다."
+        subtitle="감리 대가 산정 엑셀 계산기를 다운로드하여 사용하실 수 있습니다."
       />
 
       <section className="page-section">
@@ -67,9 +19,9 @@ export default function PricingCalc() {
           <div className="section-divider" />
           <div className="calc-page-header">
             <div>
-              <h2 className="section-title" style={{ marginBottom: 6 }}>감리 대가 산정 계산기</h2>
+              <h2 className="section-title" style={{ marginBottom: 6 }}>대가 산정 계산기 다운로드</h2>
               <p className="section-subtitle" style={{ marginBottom: 0 }}>
-                상주 및 추가감리비, 직접경비는 포함되지 않으며 정확한 견적은 상담을 통해 안내드립니다.
+                행정안전부 고시 기준에 따른 감리 대가 산정 엑셀 계산기입니다.
               </p>
             </div>
             <Link to="/pricing/info" className="btn-outline pricing-info-link">
@@ -77,169 +29,35 @@ export default function PricingCalc() {
             </Link>
           </div>
 
-          <div className="calc-widget calc-widget-full">
-            <div className="calc-form">
-
-              <div className="calc-section-label">1. 감리대상사업비 입력 (VAT 제외)</div>
-              {COST_ITEMS.map(item => (
-                <div className="calc-form-group" key={item.key}>
-                  <label className="calc-label">
-                    {item.shortLabel}
-                    <span className="calc-rate-badge">보정비율 {item.rate.toFixed(3)}</span>
-                  </label>
-                  <div className="calc-input-wrap">
-                    <input
-                      type="text"
-                      className="calc-input"
-                      value={costs[item.key]}
-                      onChange={e => handleCostChange(item.key, e.target.value)}
-                      placeholder={item.rate === 0 ? '보정비율 0 — 산정 미반영' : '0'}
-                      disabled={item.rate === 0}
-                    />
-                    <span className="calc-unit">원</span>
-                  </div>
-                </div>
-              ))}
-
-              <div className="calc-section-label" style={{ marginTop: 8 }}>2. 감리 단계</div>
-              <div className="calc-form-group">
-                <div className="calc-radio-group">
-                  {[
-                    { v: '3', label: '3단계 감리', note: '계수 0.9307' },
-                    { v: '2', label: '2단계 감리', note: '계수 0.8516' },
-                  ].map(opt => (
-                    <label key={opt.v} className={`calc-radio ${auditStage === opt.v ? 'active' : ''}`}>
-                      <input type="radio" name="auditStage" value={opt.v} checked={auditStage === opt.v}
-                        onChange={() => setAuditStage(opt.v)} style={{ display: 'none' }} />
-                      {opt.label}
-                      <span className="calc-radio-note">{opt.note}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              <div className="calc-section-label" style={{ marginTop: 8 }}>3. 난이도 요인</div>
-              {DIFFICULTY_FACTORS.map(factor => (
-                <div className="calc-form-group" key={factor.key}>
-                  <label className="calc-label">{factor.label}</label>
-                  <div className="calc-radio-group">
-                    {factor.levels.map(level => (
-                      <label key={level.value} className={`calc-radio ${difficulty[factor.key] === level.value ? 'active' : ''}`}>
-                        <input type="radio" name={factor.key} value={level.value}
-                          checked={difficulty[factor.key] === level.value}
-                          onChange={() => setDifficulty(prev => ({ ...prev, [factor.key]: level.value }))}
-                          style={{ display: 'none' }} />
-                        {level.label}
-                        <span className="calc-radio-note">+{(level.value * 100).toFixed(0)}%</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-              ))}
-
-              <button className="calc-advanced-toggle" onClick={() => setShowAdvanced(v => !v)}>
-                {showAdvanced ? '▲' : '▼'} 기준 단가 설정 (고급)
-              </button>
-              {showAdvanced && (
-                <div className="calc-advanced-box">
-                  <div className="calc-form-group">
-                    <label className="calc-label">IT감리 평균임금 (원/월)</label>
-                    <div className="calc-input-wrap">
-                      <input type="number" className="calc-input" value={itWage}
-                        onChange={e => setItWage(Number(e.target.value))} />
-                      <span className="calc-unit">원</span>
-                    </div>
-                  </div>
-                  <div className="calc-form-group" style={{ marginBottom: 0 }}>
-                    <label className="calc-label">FP 단가 (원/FP)</label>
-                    <div className="calc-input-wrap">
-                      <input type="number" className="calc-input" value={fpPrice}
-                        onChange={e => setFpPrice(Number(e.target.value))} />
-                      <span className="calc-unit">원/FP</span>
-                    </div>
-                  </div>
-                  <div className="calc-advanced-note">제경비율 110% · 기술료율 20% (고정)</div>
-                </div>
-              )}
-
-              <div className="calc-btn-row">
-                <button className="btn-primary calc-btn" onClick={handleCalc}>
-                  감리 대가 산정하기
-                </button>
-                <button className="btn-outline calc-btn-reset" onClick={handleReset}>
-                  초기화
-                </button>
+          <div className="download-card card">
+            <div className="download-icon">📊</div>
+            <div className="download-info">
+              <div className="download-desc">
+                감리대상사업비 입력 시 보정금액, 기본감리비, 부가가치세를 자동 산출합니다.<br />
+                3단계·2단계 감리, 난이도 요인 적용 포함.
               </div>
             </div>
+            <a
+              href={`${process.env.PUBLIC_URL}/${FILE_NAME}`}
+              download={FILE_NAME}
+              className="btn-primary download-btn"
+            >
+              ⬇ 엑셀 다운로드
+            </a>
+          </div>
 
-            <div className="calc-result-panel">
-              {result ? (
-                <div className="calc-result">
-                  <h3 className="calc-result-title">산정 결과</h3>
-                  <div className="calc-result-meta">
-                    <span>{auditStage}단계 감리 · 계수 {result.coeff}</span>
-                    <span>난이도계수 합 {result.diffSum} (+{(result.diffSum * 100).toFixed(0)}%)</span>
-                  </div>
-
-                  <div className="calc-result-section-label">사업비 보정금액</div>
-                  <div className="calc-result-rows">
-                    {result.costBreakdown.map(item => (
-                      <div className="calc-result-row" key={item.key}>
-                        <span>{item.shortLabel} &times; {item.rate}</span>
-                        <span>{fmt(item.corrected)}원</span>
-                      </div>
-                    ))}
-                    <div className="calc-result-row subtotal">
-                      <span>보정금액 합계</span>
-                      <span>{fmt(result.correctedAmount)}원</span>
-                    </div>
-                  </div>
-
-                  <div className="calc-result-section-label">기본감리비 산정</div>
-                  <div className="calc-result-rows">
-                    <div className="calc-result-row">
-                      <span>보정 전 기본감리비</span>
-                      <span>{fmt(result.baseFee)}원</span>
-                    </div>
-                    {result.diffSum > 0 && (
-                      <div className="calc-result-row">
-                        <span>난이도 보정 (+{(result.diffSum * 100).toFixed(0)}%)</span>
-                        <span>+{fmt(result.baseFee * result.diffSum)}원</span>
-                      </div>
-                    )}
-                    <div className="calc-result-row subtotal">
-                      <span>보정 후 기본감리비 (공급가액)</span>
-                      <span>{fmt(result.adjustedFee)}원</span>
-                    </div>
-                    <div className="calc-result-row">
-                      <span>부가가치세 (10%)</span>
-                      <span>{fmt(result.vat)}원</span>
-                    </div>
-                    <div className="calc-result-row total">
-                      <span>기본감리비 합계 (VAT 포함)</span>
-                      <span>{fmt(result.total)}원</span>
-                    </div>
-                  </div>
-
-                  <p className="calc-disclaimer">
-                    * 상주 및 추가감리비, 직접경비는 투입공수 및 실비에 따라 별도 산정됩니다.<br />
-                    * IT감리 평균임금 {fmt(itWage)}원/월, FP단가 {fmt(fpPrice)}원/FP 기준으로 산정되었습니다.<br />
-                    * 정확한 견적은 전문가 상담을 통해 안내드립니다.
-                  </p>
-                  <button className="btn-outline" style={{ width: '100%', marginTop: 16 }}>
-                    상담 문의하기
-                  </button>
-                </div>
-              ) : (
-                <div className="calc-placeholder">
-                  <div className="calc-placeholder-icon">📋</div>
-                  <p>감리대상사업비를 입력하고<br />산정 버튼을 누르면<br />결과가 표시됩니다.</p>
-                  <Link to="/pricing/info" className="calc-placeholder-link">
-                    산정 기준 확인하기 →
-                  </Link>
-                </div>
-              )}
-            </div>
+          <div className="download-guide">
+            <h3 className="download-guide-title">사용 방법</h3>
+            <ol className="download-guide-list">
+              <li>엑셀 파일을 다운로드한 후 열기</li>
+              <li>감리대상사업비 구성항목별 금액 입력 (소프트웨어 개발비, HW 구입비, DB 구축비 등)</li>
+              <li>감리 단계(2단계/3단계) 및 난이도 요인 선택</li>
+              <li>보정금액·기본감리비·부가가치세 자동 산출 확인</li>
+            </ol>
+            <p className="download-guide-note">
+              ※ IT감리 평균임금 및 FP단가는 매년 갱신되므로, 최신 고시 기준을 확인하여 입력하시기 바랍니다.<br />
+              ※ 정확한 견적은 전문가 상담을 통해 안내드립니다.
+            </p>
           </div>
 
         </div>

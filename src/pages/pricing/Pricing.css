@@ -280,6 +280,54 @@
   border-bottom: 1px solid rgba(15,59,130,0.3); padding-bottom: 1px;
 }
 
+/* ── Download page ── */
+.download-card {
+  display: flex; align-items: center; gap: 28px;
+  padding: 36px; margin-top: 32px; flex-wrap: wrap;
+}
+
+.download-icon { font-size: 3rem; flex-shrink: 0; }
+
+.download-info { flex: 1; min-width: 200px; }
+
+.download-filename {
+  font-size: 1rem; font-weight: 700; color: var(--text-dark);
+  margin-bottom: 8px; word-break: break-all;
+}
+
+.download-desc {
+  font-size: 0.86rem; color: var(--text-mid); line-height: 1.7;
+}
+
+.download-btn {
+  white-space: nowrap; text-decoration: none;
+  padding: 14px 28px; font-size: 0.95rem;
+}
+
+.download-guide {
+  margin-top: 40px; padding: 32px 36px;
+  background: var(--bg-light); border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.download-guide-title {
+  font-size: 0.95rem; font-weight: 700;
+  color: var(--text-dark); margin-bottom: 16px;
+}
+
+.download-guide-list {
+  padding-left: 20px; display: flex; flex-direction: column;
+  gap: 10px; margin-bottom: 20px;
+}
+
+.download-guide-list li {
+  font-size: 0.88rem; color: var(--text-mid); line-height: 1.6;
+}
+
+.download-guide-note {
+  font-size: 0.78rem; color: var(--text-light); line-height: 1.7;
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .formula-cards { grid-template-columns: 1fr; }

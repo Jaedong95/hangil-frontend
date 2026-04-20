@@ -1,0 +1,136 @@
+/* ── Backdrop ── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: backdropIn 0.2s ease;
+}
+
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Box ── */
+.modal-box {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  padding: 40px 36px 32px;
+  width: 100%;
+  max-width: 460px;
+  animation: boxIn 0.22s ease;
+}
+
+@keyframes boxIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+/* ── Close button ── */
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: var(--bg-light, #f5f7fa);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--text-light, #8fa0b4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+.modal-close:hover { background: var(--border, #dde3ec); color: var(--text-dark, #1a2940); }
+
+/* ── Header ── */
+.modal-header { text-align: center; margin-bottom: 28px; }
+
+.modal-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.modal-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-dark, #1a2940);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.modal-subtitle {
+  font-size: 0.87rem;
+  color: var(--text-mid, #4e6280);
+  line-height: 1.6;
+}
+
+/* ── Contact items ── */
+.modal-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.modal-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border: 1.5px solid var(--border, #dde3ec);
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.18s, background 0.18s, transform 0.18s;
+}
+
+.modal-contact-item:hover {
+  border-color: var(--primary, #0f3b82);
+  background: rgba(15, 59, 130, 0.04);
+  transform: translateY(-1px);
+}
+
+.modal-contact-icon { font-size: 1.4rem; flex-shrink: 0; }
+
+.modal-contact-label {
+  font-size: 0.72rem;
+  color: var(--text-light, #8fa0b4);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.modal-contact-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary, #0f3b82);
+  letter-spacing: 0.01em;
+}
+
+/* ── Note ── */
+.modal-note {
+  font-size: 0.78rem;
+  color: var(--text-light, #8fa0b4);
+  line-height: 1.7;
+  text-align: center;
+  padding: 14px 16px;
+  background: var(--bg-light, #f5f7fa);
+  border-radius: 8px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .modal-box { padding: 32px 20px 24px; }
+  .modal-contact-value { font-size: 0.92rem; }
+}
