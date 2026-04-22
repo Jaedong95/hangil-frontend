@@ -280,6 +280,31 @@
   border-bottom: 1px solid rgba(15,59,130,0.3); padding-bottom: 1px;
 }
 
+/* ── Calc tabs ── */
+.calc-tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 32px;
+  border-bottom: 2px solid var(--border);
+}
+
+.calc-tab {
+  padding: 10px 24px;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-light);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.calc-tab:hover { color: var(--primary); }
+.calc-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+
 /* ── Download page ── */
 .download-card {
   display: flex; align-items: center; gap: 28px;
