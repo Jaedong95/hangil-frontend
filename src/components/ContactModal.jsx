@@ -23,18 +23,18 @@ export default function ContactModal({ onClose }) {
         </div>
 
         <div className="modal-contacts">
-          <a href="tel:010-3462-7817" className="modal-contact-item">
+          <a href="tel:02-6953-7183" className="modal-contact-item">
             <span className="modal-contact-icon">📞</span>
             <div>
               <div className="modal-contact-label">전화 문의</div>
-              <div className="modal-contact-value">010-3462-7817</div>
+              <div className="modal-contact-value">02-6953-7183</div>
             </div>
           </a>
-          <a href="mailto:info@hangil-ai.co.kr" className="modal-contact-item">
+          <a href="mailto:info@hangil.ai.kr" className="modal-contact-item">
             <span className="modal-contact-icon">📧</span>
             <div>
               <div className="modal-contact-label">이메일 문의</div>
-              <div className="modal-contact-value">info@hangil-ai.co.kr</div>
+              <div className="modal-contact-value">info@hangil.ai.kr</div>
             </div>
           </a>
         </div>

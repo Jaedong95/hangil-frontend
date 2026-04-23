@@ -51,8 +51,7 @@ const SERVICES = [
 const WHY_ITEMS = [
   { num: '01', title: '대한민국 최초 AI 감리', desc: 'AI 기술을 접목한 차세대 감리 플랫폼으로 정확성과 효율을 동시에 달성합니다.' },
   { num: '02', title: '다양한 분야의 전문 인력', desc: '수석감리원·기술사·AI 전문가·클라우드·데이터 등 각 분야 자격 보유 전문가가 함께합니다.' },
-  { num: '03', title: '자체 개발 솔루션', desc: 'FP Code Analyzer으로 기능점수 산정 자동화를 실현하고 객관성을 보장합니다.' },
-  { num: '04', title: '법적 요건 완전 충족', desc: '전자정부법 등 관련 법규에 따른 의무 감리 요건을 빈틈없이 충족시킵니다.' },
+  { num: '03', title: '법적 요건 완전 충족', desc: '전자정부법 등 관련 법규에 따른 의무 감리 요건을 빈틈없이 충족시킵니다.' },
 ];
 
 export default function Hero() {
@@ -79,7 +78,7 @@ export default function Hero() {
           <div className="hero-left">
             <div className="hero-kicker fade-up">대한민국 최초 AI 감리 서비스</div>
             <h1 className="hero-heading fade-up">
-              AI가 만드는<br />
+              AI를 활용한<br />
               <span>신뢰할 수 있는</span><br />
               감리 서비스
             </h1>
@@ -93,30 +92,6 @@ export default function Hero() {
             </div>
           </div>
           <div className="hero-right fade-up">
-            <div className="hero-card-group">
-              <div className="hero-info-card">
-                <div className="hic-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="hic-title">AI 기반 감리 분석</div>
-                  <div className="hic-sub">문서 자동 분석 · 오류 탐지 · 리포트 생성</div>
-                </div>
-              </div>
-              <div className="hero-info-card">
-                <div className="hic-icon hic-icon-alt">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="hic-title">FP Code Analyzer</div>
-                  <div className="hic-sub">기능점수 자동 산정 · 특허 등록 완료</div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <div className="hero-wave">
@@ -177,61 +152,6 @@ export default function Hero() {
       </section>
 
 
-      {/* ── FP Code ── */}
-      <section className="page-section" style={{ paddingTop: '48px' }}>
-        <div className="container">
-          <div className="section-header fade-up">
-            <p className="section-eyebrow">Our Solution</p>
-            <h2 className="section-title">자체 개발 솔루션</h2>
-            <p className="section-subtitle">한길에이아이가 직접 개발한 AI 기반 솔루션으로 감리의 새 기준을 만듭니다.</p>
-          </div>
-          <div className="fpcode-teaser fade-up">
-            <div className="fpt-left">
-              <div className="fpt-badge">특허 등록 솔루션</div>
-              <h3 className="fpt-title">FP Code Analyzer</h3>
-              <p className="fpt-sub">AI Function Point Estimation System</p>
-              <p className="fpt-desc">
-                자연어 처리(NLP) 기반으로 요구사항 문서를 자동 분석하여 기능점수(Function Point)를 정확하게 산정합니다.
-                기존 수작업 대비 90% 이상의 시간을 절감하고, 표준화된 결과로 객관성을 보장합니다.
-              </p>
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <Link to="/solutions/fpcode" className="btn-primary">솔루션 상세 보기</Link>
-                <button className="btn-outline" onClick={() => setShowContact(true)}>상담 문의하기 (견적서 요청)</button>
-              </div>
-            </div>
-            <div className="fpt-right">
-              <div className="fpt-mockup">
-                <div className="fpt-mock-bar">
-                  <span /><span /><span />
-                  <span className="fpt-mock-title">FP Code Analyzer — 기능점수 분석</span>
-                </div>
-                <div className="fpt-mock-body">
-                  <div className="fpt-mock-label">기능점수 분석 결과</div>
-                  {[
-                    { type: 'EI (외부 입력)', fp: 35, max: 50 },
-                    { type: 'EO (외부 출력)', fp: 28, max: 50 },
-                    { type: 'EQ (외부 조회)', fp: 20, max: 50 },
-                    { type: 'ILF (내부 논리)', fp: 42, max: 50 },
-                    { type: 'EIF (외부 인터)', fp: 15, max: 50 },
-                  ].map((r) => (
-                    <div key={r.type} className="fpt-row">
-                      <div className="fpt-row-label">{r.type}</div>
-                      <div className="fpt-row-bar">
-                        <div className="fpt-row-fill" style={{ width: `${(r.fp / r.max) * 100}%` }} />
-                      </div>
-                      <div className="fpt-row-val">{r.fp} FP</div>
-                    </div>
-                  ))}
-                  <div className="fpt-total">
-                    <span>총 기능점수</span>
-                    <span className="fpt-total-val">140 FP</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
     </main>
 

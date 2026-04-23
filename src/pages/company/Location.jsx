@@ -34,8 +34,8 @@ export default function Location() {
                 </div>
                 {[
                   { icon: '📍', label: '주소', value: '서울특별시 마포구 월드컵로 196, 비 105-씨 79호 (성산동)' },
-                  { icon: '📞', label: '전화', value: '010-3462-7817' },
-                  { icon: '📧', label: '이메일', value: 'info@hangil-ai.co.kr' },
+                  { icon: '📞', label: '전화', value: '02-6953-7183' },
+                  { icon: '📧', label: '이메일', value: 'info@hangil.ai.kr' },
                   { icon: '🕐', label: '업무시간', value: '평일 09:00 ~ 18:00\n(점심시간 12:00 ~ 13:00)' },
                 ].map((info) => (
                   <div key={info.label} className="location-info-row">
@@ -60,26 +60,26 @@ export default function Location() {
                   icon: '🚇',
                   title: '지하철',
                   lines: [
-                    '○호선 ○○역 0번 출구에서 도보 5분',
-                    '○호선 ○○역 0번 출구에서 도보 10분',
+                    '6호선 마포구청역 1번 출구 도보 1분',
                   ],
                 },
                 {
                   icon: '🚌',
                   title: '버스',
                   lines: [
-                    '간선버스: 000, 000번',
-                    '지선버스: 000, 000번',
-                    '정류장: ○○빌딩 앞',
+                    '간선버스: 271, 710',
+                    '지선버스: 7011, 7016, 7733',
+                    '광역버스: 9711',
+                    '마을버스: 마포08, 마포15',
+                    '정류장: 마포구청역 정류장에서 하차',
                   ],
                 },
                 {
                   icon: '🚗',
                   title: '자가용',
                   lines: [
-                    '건물 지하 주차장 이용 가능',
-                    '주차 가능 시간: 2시간 무료',
-                    '내비게이션: "한길에이아이" 검색',
+                    '내비게이션: "대명비첸시티 오피스텔" 검색',
+                    '또는 "서울특별시 마포구 월드컵로 196" 검색',
                   ],
                 },
               ].map((trans) => (

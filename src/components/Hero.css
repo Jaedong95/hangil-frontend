@@ -204,7 +204,7 @@
 
 .why-right {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
 }
 
@@ -237,6 +237,7 @@
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-dark);
+  white-space: nowrap;
 }
 
 .wi-desc {

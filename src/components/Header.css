@@ -71,6 +71,22 @@
 
 .nav-item:hover .nav-arrow { transform: rotate(180deg); }
 
+.nav-contact-btn {
+  padding: 8px 18px;
+  background: var(--primary);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+.nav-contact-btn:hover { background: var(--primary-dark, #0a2d66); }
+
 /* Dropdown */
 .dropdown {
   position: absolute;

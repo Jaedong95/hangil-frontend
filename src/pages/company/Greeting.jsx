@@ -22,7 +22,7 @@ export default function Greeting() {
             <h2 className="section-title">안녕하십니까,<br />주식회사 한길에이아이 대표이사입니다.</h2>
             <div className="greeting-text">
               <p>
-                한길에이아이은 대한민국 정보시스템 감리 분야에서 20여 년간 쌓아온 전문성을 바탕으로,
+                한길에이아이는 대한민국 정보시스템 감리 분야에서 20여 년간 쌓아온 전문성을 바탕으로,
                 고객의 정보화 사업이 성공적으로 완수될 수 있도록 최선을 다해 지원하고 있습니다.
               </p>
               <p>
@@ -31,8 +31,7 @@ export default function Greeting() {
                 기존 감리의 한계를 뛰어넘는 새로운 패러다임을 제시합니다.
               </p>
               <p>
-                자체 개발한 <strong>FP Code Analyzer</strong>을 통해 기능점수 산정의 정확성을 높이고,
-                객관적이고 투명한 사업 규모 산정 서비스를 제공합니다. 이를 통해 발주기관과 사업자 모두
+                객관적이고 투명한 사업 규모 산정 서비스를 제공하며, 발주기관과 사업자 모두
                 신뢰할 수 있는 감리 결과를 도출합니다.
               </p>
               <p>
@@ -60,9 +59,8 @@ export default function Greeting() {
               { label: '설립일', value: '2025년 08월 28일' },
               { label: '사업분야', value: '정보시스템 감리 · PMO 및 정보기술 컨설팅' },
               { label: '소재지', value: '서울특별시 마포구 월드컵로 196, 비 105-씨 79호 (성산동)' },
-              { label: '전화번호', value: '010-3462-7817' },
+              { label: '전화번호', value: '02-6953-7183' },
               { label: '해당부문 종사기간', value: '2025.08 ~ 현재' },
-              { label: '자체 솔루션', value: 'FP Code Analyzer (기능점수 산정 솔루션)' },
             ].map((item) => (
               <div key={item.label} className="overview-row">
                 <span className="overview-label">{item.label}</span>

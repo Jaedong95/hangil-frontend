@@ -21,6 +21,7 @@ const LINKS = [
       { label: '정보시스템 PMO', path: '/business/pmo' },
       { label: '정보시스템 컨설팅', path: '/business/consulting' },
       { label: 'IT 품질 진단', path: '/business/quality' },
+      { label: '기능점수 산정', path: '/business/fpcode' },
     ],
   },
   {
@@ -31,9 +32,8 @@ const LINKS = [
     ],
   },
   {
-    title: '솔루션 & 기타',
+    title: '기타',
     items: [
-      { label: 'FP Code Analyzer', path: '/solutions/fpcode' },
       { label: '대가 산정', path: '/pricing' },
     ],
   },
@@ -50,8 +50,8 @@ export default function Footer() {
             </p>
             <div className="footer-contact">
               {[
-                { icon: '📞', text: '010-3462-7817' },
-                { icon: '📧', text: 'info@hangil-ai.co.kr' },
+                { icon: '📞', text: '02-6953-7183' },
+                { icon: '📧', text: 'info@hangil.ai.kr' },
                 { icon: '📍', text: '서울특별시 마포구 월드컵로 196, 비 105-씨 79호 (성산동)' },
               ].map((c) => (
                 <div key={c.text} className="footer-contact-row">

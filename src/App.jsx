@@ -29,8 +29,11 @@ import ProcedureQuality from './pages/procedure/ProcedureQuality';
 import PricingInfo from './pages/pricing/PricingInfo';
 import PricingCalc from './pages/pricing/PricingCalc';
 
-// 솔루션
+// FP Code Analyzer
 import FPCode from './pages/solutions/FPCode';
+
+// 문의하기
+import Contact from './pages/Contact';
 
 import './App.css';
 
@@ -68,8 +71,12 @@ function App() {
           <Route path="/pricing/calculator" element={<PricingCalc />} />
           <Route path="/pricing" element={<Navigate to="/pricing/info" />} />
 
-          {/* 솔루션 */}
-          <Route path="/solutions/fpcode" element={<FPCode />} />
+          {/* FP Code Analyzer */}
+          <Route path="/business/fpcode" element={<FPCode />} />
+          <Route path="/solutions/fpcode" element={<Navigate to="/business/fpcode" />} />
+
+          {/* 문의하기 */}
+          <Route path="/contact" element={<Contact />} />
 
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

@@ -24,6 +24,7 @@ const NAV_ITEMS = [
       { label: '정보시스템 PMO', path: '/business/pmo' },
       { label: '정보시스템 컨설팅', path: '/business/consulting' },
       { label: 'IT 품질 진단', path: '/business/quality' },
+      { label: '기능점수 산정', path: '/business/fpcode' },
     ],
   },
   {
@@ -45,12 +46,10 @@ const NAV_ITEMS = [
     ],
   },
   {
-    label: '솔루션',
-    key: 'solutions',
-    children: [
-      { label: 'FP Code Analyzer', path: '/solutions/fpcode' },
-      { label: '추가 예정', path: '#', disabled: true },
-    ],
+    label: '문의하기',
+    key: 'contact',
+    path: '/contact',
+    children: [],
   },
 ];
 
