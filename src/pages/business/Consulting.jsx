@@ -27,6 +27,18 @@ const CONSULT_STEPS = [
     sub: '단계별 로드맵으로 실행력을 확보합니다',
     desc: '개선과제로부터 이행과제를 도출하고, 우선순위와 선후관계를 고려하여 단계별 로드맵 및 실행계획을 수립합니다.',
   },
+  {
+    num: '05',
+    title: '단계별 로드맵 수립',
+    sub: '실현 가능한 일정과 자원 계획을 제시합니다',
+    desc: '이행과제별 추진 일정, 소요 예산, 담당 조직을 구체화하고, 단계별 목표와 성과 지표를 설정하여 실행 가능한 로드맵을 완성합니다.',
+  },
+  {
+    num: '06',
+    title: '실행 지원 및 피드백',
+    sub: '컨설팅 이후에도 함께합니다',
+    desc: '수립된 계획의 이행을 모니터링하고, 실행 과정에서 발생하는 이슈에 신속히 대응하며 목표 달성까지 지속적인 지원과 피드백을 제공합니다.',
+  },
 ];
 
 const SERVICE_AREAS = [
@@ -149,7 +161,7 @@ export default function Consulting() {
           <div className="section-block">
             <div className="section-divider" />
             <h2 className="section-title">컨설팅 수행 단계</h2>
-            <div className="ism-steps" style={{ marginTop: 32 }}>
+            <div className="ism-steps" style={{ marginTop: 32, gridTemplateColumns: 'repeat(3, 1fr)' }}>
               {CONSULT_STEPS.map((step, i) => (
                 <div key={step.num} className="ism-step">
                   <div className="ism-step-num">{step.num}</div>

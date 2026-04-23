@@ -11,18 +11,30 @@ const PMO_STEPS = [
   },
   {
     num: '02',
-    title: '일정·비용 통합 관리',
+    title: '요구사항 및 범위 관리',
+    sub: '사업 목표와 범위를 명확히 정의합니다',
+    desc: '발주기관의 요구사항을 체계적으로 정리하고, 범위 기준선을 설정합니다. 요구사항 변경 이력을 관리하여 범위 초과와 목표 이탈을 사전에 방지합니다.',
+  },
+  {
+    num: '03',
+    title: '일정·비용 모니터링',
     sub: '숫자로 증명하는 투명한 관리',
     desc: 'WBS 기반 일정 추적과 예산 집행 현황 모니터링을 병행합니다. 기능점수 기반 객관적 비용 산정으로 예산 왜곡과 범위 초과를 방지합니다.',
   },
   {
-    num: '03',
+    num: '04',
     title: '품질·리스크 관리',
     sub: '감리 전문가의 눈으로 품질을 지킵니다',
     desc: '정보시스템 감리에서 축적된 품질 검증 역량을 PMO에 그대로 적용합니다. 잠재 위험을 사전에 식별하고, 산출물 검토와 이슈 조정을 통해 사업의 완성도를 높입니다.',
   },
   {
-    num: '04',
+    num: '05',
+    title: '변경 관리 및 의사소통',
+    sub: '이해관계자 간 원활한 소통을 이끕니다',
+    desc: '변경 요청을 체계적으로 평가하고 승인 프로세스를 관리합니다. 이해관계자별 맞춤형 보고 체계를 운영하여 발주기관과 사업자 간 소통이 끊기지 않도록 지원합니다.',
+  },
+  {
+    num: '06',
     title: '종료 및 성과 평가',
     sub: '사업 완료 이후까지 책임집니다',
     desc: '단순 완료 보고로 끝나지 않습니다. 목표 달성 여부를 객관적으로 평가하고, 미결 이슈 이행 확인과 운영 전환 지원까지 프로젝트의 완전한 성공을 함께 완성합니다.',
@@ -152,7 +164,7 @@ export default function PMO() {
           <div className="section-block">
             <div className="section-divider" />
             <h2 className="section-title">PMO 수행 단계</h2>
-            <div className="ism-steps" style={{ marginTop: 32 }}>
+            <div className="ism-steps" style={{ marginTop: 32, gridTemplateColumns: 'repeat(3, 1fr)' }}>
               {PMO_STEPS.map((step, i) => (
                 <div key={step.num} className="ism-step">
                   <div className="ism-step-num">{step.num}</div>

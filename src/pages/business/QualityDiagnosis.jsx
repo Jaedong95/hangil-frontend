@@ -23,7 +23,19 @@ const DIAG_STEPS = [
   },
   {
     num: '04',
-    title: '결과 보고 및 이행 점검',
+    title: '취약점 및 문제점 분류',
+    sub: '발견된 문제를 체계적으로 정리합니다',
+    desc: '영역별 전문가 진단에서 도출된 취약점과 문제점을 유형·심각도·영역별로 분류하여 체계적으로 정리합니다. 중복 이슈를 통합하고 근본 원인을 명확히 규명합니다.',
+  },
+  {
+    num: '05',
+    title: '개선 우선순위 및 방안 도출',
+    sub: '실행 가능한 해결책을 제시합니다',
+    desc: '분류된 문제점의 영향도·긴급도·난이도를 종합 평가하여 개선 우선순위를 결정합니다. 각 항목에 대해 단기·중기·장기 조치 방안을 구체적으로 제시합니다.',
+  },
+  {
+    num: '06',
+    title: '종합 보고 및 이행 점검',
     sub: '진단 이후까지 책임집니다',
     desc: '영역별 진단 결과와 개선 우선순위, 구체적 조치 방안을 담은 종합 품질 보고서를 제출합니다. 보고서 제출로 끝나지 않고 개선 조치 이행 여부까지 점검합니다.',
   },
@@ -138,7 +150,7 @@ export default function QualityDiagnosis() {
           <div className="section-block">
             <div className="section-divider" />
             <h2 className="section-title">품질진단 수행 단계</h2>
-            <div className="ism-steps" style={{ marginTop: 32 }}>
+            <div className="ism-steps" style={{ marginTop: 32, gridTemplateColumns: 'repeat(3, 1fr)' }}>
               {DIAG_STEPS.map((step, i) => (
                 <div key={step.num} className="ism-step">
                   <div className="ism-step-num">{step.num}</div>
