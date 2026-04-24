@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/LG/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/2e9d88df-a900-4bde-8cf2-e04ba0954e08/bbe5895a-c752-49d4-84a2-d2f86df25677/skills/xlsx/**)",
+      "Bash(python -)",
+      "Bash(python3 -)",
+      "Bash(where python *)",
+      "Bash(where python3 *)",
+      "Bash(where py *)",
+      "Bash(C:\\\\Python313\\\\python.exe -c \"import openpyxl; print\\('ok'\\)\")",
+      "Bash(C:\\\\Python313\\\\python.exe -m pip install openpyxl -q)",
+      "Bash(\"/c/Python313/python.exe\" -c \"import openpyxl; print\\('openpyxl ok'\\)\")",
+      "Bash(\"/c/Python313/python.exe\" -m pip install openpyxl -q)",
+      "Bash(\"/c/Users/LG/AppData/Local/Programs/Python/Python314/python.exe\" -c \"import openpyxl; print\\('ok'\\)\")",
+      "Bash(\"/c/Users/LG/AppData/Local/Programs/Python/Python314/python.exe\" -m pip install openpyxl -q)",
+      "Bash(\"/c/Users/LG/AppData/Local/Programs/Python/Python314/python.exe\")"
+    ]
+  }
+}

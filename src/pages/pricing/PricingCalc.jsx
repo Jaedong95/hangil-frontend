@@ -48,6 +48,11 @@ function fmt(n) {
 function fmtMD(n) {
   return n.toLocaleString('ko-KR') + ' MD';
 }
+function fmtInput(val) {
+  const digits = String(val).replace(/[^\d]/g, '');
+  if (!digits) return '';
+  return Number(digits).toLocaleString('ko-KR');
+}
 
 const INIT_INPUTS = Object.fromEntries(COST_ITEMS.map((c) => [c.key, '']));
 
@@ -89,19 +94,19 @@ export default function PricingCalc() {
     /* ② 표준공수(MD) */
     const stdMD = Math.ceil(stageCoeff * Math.pow(adjustedSum / FP_UNIT, EXPONENT) * (1 + diffSum));
 
-    /* ③ 기본감리비 */
+    /* ③ 기본감리비: 직접인건비 × (1+제경비율) × (1+기술료율) */
     const basicFee = stageCoeff * IT_MD
       * Math.pow(adjustedSum / FP_UNIT, EXPONENT)
-      * exp * (1 + tech) * (1 + diffSum);
+      * (1 + exp) * (1 + tech) * (1 + diffSum);
 
     /* ④ 직접경비 */
     const direct = parseMan(directCost);
 
     /* ⑤ 상주감리비 */
-    const resFee = parseNum(resMD) * parseNum(resWage) * exp * (1 + tech);
+    const resFee = parseNum(resMD) * parseNum(resWage) * (1 + exp) * (1 + tech);
 
     /* ⑥ 추가감리비 */
-    const extFee = parseNum(extMD) * parseNum(extWage) * exp * (1 + tech);
+    const extFee = parseNum(extMD) * parseNum(extWage) * (1 + exp) * (1 + tech);
 
     /* ⑦ 최종 감리비 */
     const totalExcl = basicFee + direct + resFee + extFee;
@@ -210,10 +215,13 @@ export default function PricingCalc() {
                       <div className="calc-input-wrap">
                         <input
                           className="calc-input"
-                          type="number" min="0" placeholder="0"
+                          type="text" inputMode="numeric" placeholder="0"
                           value={inputs[item.key]}
                           disabled={item.rate === 0}
-                          onChange={(e) => setInputs((p) => ({ ...p, [item.key]: e.target.value }))}
+                          onChange={(e) => {
+                            const v = fmtInput(e.target.value);
+                            setInputs((p) => ({ ...p, [item.key]: v }));
+                          }}
                         />
                         <span className="calc-unit">만원</span>
                       </div>
@@ -275,8 +283,8 @@ export default function PricingCalc() {
                   <div className="calc-form-group">
                     <label className="calc-label">직접경비 <span className="calc-rate-badge">여비·도구사용료·자문비 등</span></label>
                     <div className="calc-input-wrap">
-                      <input className="calc-input" type="number" min="0" placeholder="0"
-                        value={directCost} onChange={(e) => setDirectCost(e.target.value)} />
+                      <input className="calc-input" type="text" inputMode="numeric" placeholder="0"
+                        value={directCost} onChange={(e) => setDirectCost(fmtInput(e.target.value))} />
                       <span className="calc-unit">만원</span>
                     </div>
                   </div>
@@ -294,8 +302,8 @@ export default function PricingCalc() {
                   <div className="calc-form-group">
                     <label className="calc-label">해당 IT직무 평균임금</label>
                     <div className="calc-input-wrap">
-                      <input className="calc-input" type="number" min="0" placeholder="0"
-                        value={resWage} onChange={(e) => setResWage(e.target.value)} />
+                      <input className="calc-input" type="text" inputMode="numeric" placeholder="0"
+                        value={resWage} onChange={(e) => setResWage(fmtInput(e.target.value))} />
                       <span className="calc-unit">원/MD</span>
                     </div>
                   </div>
@@ -312,8 +320,8 @@ export default function PricingCalc() {
                   <div className="calc-form-group">
                     <label className="calc-label">해당 IT직무 평균임금</label>
                     <div className="calc-input-wrap">
-                      <input className="calc-input" type="number" min="0" placeholder="0"
-                        value={extWage} onChange={(e) => setExtWage(e.target.value)} />
+                      <input className="calc-input" type="text" inputMode="numeric" placeholder="0"
+                        value={extWage} onChange={(e) => setExtWage(fmtInput(e.target.value))} />
                       <span className="calc-unit">원/MD</span>
                     </div>
                   </div>
@@ -427,7 +435,7 @@ export default function PricingCalc() {
               </div>
 
               <p style={{ fontSize: '0.78rem', color: 'var(--text-light)', marginTop: 16, lineHeight: 1.7 }}>
-                ※ 산출식: 단계계수 × 502,494(MD) × (보정사업비 ÷ 605,784)^0.6385 × 제경비율 × (1+기술료율) × (1+난이도계수합계)
+                ※ 산출식: 단계계수 × 502,494(MD) × (보정사업비 ÷ 605,784)^0.6385 × (1+제경비율) × (1+기술료율) × (1+난이도계수합계)
               </p>
             </>
           )}
