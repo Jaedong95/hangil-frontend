@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
+import servicesBg from '../../assets/Services.png';
 import './Business.css';
 
 const CONSULT_STEPS = [
@@ -103,6 +104,7 @@ export default function Consulting() {
       <PageHeader
         title="정보시스템 컨설팅"
         subtitle="BPR/ISP, ISMP, 데이터 컨설팅 등 종합적인 IT 컨설팅 서비스를 제공합니다."
+        bgImage={servicesBg}
       />
 
       <section className="page-section">

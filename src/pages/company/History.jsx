@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
+import aboutBg from '../../assets/AboutUs.png';
 import './Company.css';
 
 const HISTORY = [
@@ -17,6 +18,7 @@ export default function History() {
       <PageHeader
         title="회사 연혁"
         subtitle="한길에이아이의 성장 발자취를 소개합니다."
+        bgImage={aboutBg}
       />
       <section className="page-section">
         <div className="container" style={{ maxWidth: 800 }}>

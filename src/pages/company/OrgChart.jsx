@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
+import aboutBg from '../../assets/AboutUs.png';
 import './Company.css';
 
 const DEPTS = [
@@ -53,6 +54,7 @@ export default function OrgChart() {
       <PageHeader
         title="조직도"
         subtitle="한길에이아이의 전문 조직 구성을 소개합니다."
+        bgImage={aboutBg}
       />
       <section className="page-section">
         <div className="container">

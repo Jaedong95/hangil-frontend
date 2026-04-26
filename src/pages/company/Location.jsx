@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
+import aboutBg from '../../assets/AboutUs.png';
 import './Company.css';
 
 export default function Location() {
@@ -8,6 +9,7 @@ export default function Location() {
       <PageHeader
         title="오시는 길"
         subtitle="한길에이아이를 방문하시는 방법을 안내해 드립니다."
+        bgImage={aboutBg}
       />
       <section className="page-section">
         <div className="container">

@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
+import servicesBg from '../../assets/Services.png';
 import './Business.css';
 
 const PMO_STEPS = [
@@ -103,6 +104,7 @@ export default function PMO() {
       <PageHeader
         title="정보시스템 PMO"
         subtitle="감리 전문가의 통찰력으로 프로젝트 전 영역을 통합 관리합니다."
+        bgImage={servicesBg}
       />
 
       <section className="page-section">

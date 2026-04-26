@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
+import auditBg from '../../assets/AuditInformation.png';
 import './Procedure.css';
 
 const DEF_ITEMS = [
@@ -87,6 +88,7 @@ export default function ProcedureOverview() {
       <PageHeader
         title="정보시스템 감리 개요"
         subtitle="감리의 정의, 대상, 기대효과를 안내합니다."
+        bgImage={auditBg}
       />
 
       <section className="page-section">

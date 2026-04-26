@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
+import aboutBg from '../../assets/AboutUs.png';
 import './Company.css';
 
 import logo행정안전부 from '../../assets/mois.png';
@@ -79,6 +80,7 @@ export default function Clients() {
       <PageHeader
         title="주요 고객사"
         subtitle="다양한 분야의 기관과 함께 신뢰받는 감리 서비스를 제공합니다."
+        bgImage={aboutBg}
       />
       <section className="page-section">
         <div className="container">

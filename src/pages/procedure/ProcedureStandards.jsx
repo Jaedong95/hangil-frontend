@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
+import auditBg from '../../assets/AuditInformation.png';
 import './Procedure.css';
 
 const MANDATORY_ITEMS = [
@@ -44,6 +45,7 @@ export default function ProcedureStandards() {
       <PageHeader
         title="감리 기준"
         subtitle="감리 업무 내용과 수행 형태를 안내합니다."
+        bgImage={auditBg}
       />
 
       <section className="page-section">

@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
+import servicesBg from '../../assets/Services.png';
 import './Business.css';
 
 const DIAG_STEPS = [
@@ -93,6 +94,7 @@ export default function QualityDiagnosis() {
       <PageHeader
         title="IT 품질진단"
         subtitle="영역별 특화된 전문가의 시스템 진단 및 구체적인 해결 방안을 제시합니다."
+        bgImage={servicesBg}
       />
 
       <section className="page-section">

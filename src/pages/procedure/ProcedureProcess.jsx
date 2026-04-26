@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PageHeader from '../../components/PageHeader';
+import auditBg from '../../assets/AuditInformation.png';
 import './Procedure.css';
 
 const PROC_STEPS = [
@@ -102,6 +103,7 @@ export default function ProcedureProcess() {
       <PageHeader
         title="감리 수행절차"
         subtitle="한길에이아이의 체계적인 감리 수행 절차와 품질보증 활동을 안내합니다."
+        bgImage={auditBg}
       />
 
       <section className="page-section">

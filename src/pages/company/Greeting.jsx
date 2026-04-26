@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
+import aboutBg from '../../assets/AboutUs.png';
 import './Company.css';
 
 export default function Greeting() {
@@ -8,6 +9,7 @@ export default function Greeting() {
       <PageHeader
         title="인사말"
         subtitle="한길에이아이를 찾아주셔서 감사합니다."
+        bgImage={aboutBg}
       />
 
       <section className="page-section">

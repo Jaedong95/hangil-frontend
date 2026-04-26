@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
+import auditBg from '../../assets/AuditInformation.png';
 import './Procedure.css';
 
 const QA_PHASES = [
@@ -120,6 +121,7 @@ export default function ProcedureQuality() {
       <PageHeader
         title="감리 품질보증 체계"
         subtitle="한길에이아이의 체계적인 품질보증 프로세스와 보고서 품질 관리 기준을 안내합니다."
+        bgImage={auditBg}
       />
 
       <section className="page-section">

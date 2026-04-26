@@ -1,11 +1,16 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader';
+import contactBg from '../assets/Contact.png';
 import './Contact.css';
 
 export default function Contact() {
   return (
     <div>
-      <PageHeader title="문의하기" subtitle="한길에이아이와 함께 시작하세요." />
+      <PageHeader
+        title="문의하기"
+        subtitle="한길에이아이와 함께 시작하세요."
+        bgImage={contactBg}
+      />
       <section className="page-section">
         <div className="container contact-page">
           <div className="contact-card">

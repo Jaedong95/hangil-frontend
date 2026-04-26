@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
+import pricingBg from '../../assets/Pricing.png';
 import { Link } from 'react-router-dom';
 import { COST_ITEMS, DIFFICULTY_FACTORS } from './pricingConstants';
 import './Pricing.css';
@@ -10,6 +11,7 @@ export default function PricingInfo() {
       <PageHeader
         title="대가 산정 안내"
         subtitle="정보시스템 감리 대가 산정 기준 및 산정 방법을 안내합니다."
+        bgImage={pricingBg}
       />
 
       <section className="page-section">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PageHeader from '../../components/PageHeader';
+import servicesBg from '../../assets/Services.png';
 import ContactModal from '../../components/ContactModal';
 import './Solutions.css';
 
@@ -70,6 +71,7 @@ export default function FPCode() {
       <PageHeader
         title="FP Code Analyzer"
         subtitle="소스기반 Function Point(기능점수) 측정 도구"
+        bgImage={servicesBg}
       />
 
       <section className="page-section">

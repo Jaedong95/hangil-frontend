@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PageHeader from '../../components/PageHeader';
+import pricingBg from '../../assets/Pricing.png';
 import { Link } from 'react-router-dom';
 import './Pricing.css';
 
@@ -135,6 +136,7 @@ export default function PricingCalc() {
       <PageHeader
         title="대가 산정 계산기"
         subtitle="엑셀 계산기 다운로드 및 웹 계산기를 제공합니다."
+        bgImage={pricingBg}
       />
 
       <section className="page-section">

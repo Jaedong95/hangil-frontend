@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
+import servicesBg from '../../assets/Services.png';
 import './Business.css';
 
 const STEPS = [
@@ -106,6 +107,7 @@ export default function ISManagement() {
       <PageHeader
         title="정보시스템 감리"
         subtitle="AI와 전문 감리사가 함께, 사업의 성공을 끝까지 책임집니다."
+        bgImage={servicesBg}
       />
 
       <section className="page-section">

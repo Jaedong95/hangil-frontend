@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PageHeader from '../../components/PageHeader';
+import aboutBg from '../../assets/AboutUs.png';
 import './Company.css';
 
 const PERFORMANCE_DATA = [
@@ -67,6 +68,7 @@ export default function Performance() {
       <PageHeader
         title="감리 실적"
         subtitle="한길에이아이가 수행한 공공기관 정보시스템 감리 실적입니다."
+        bgImage={aboutBg}
       />
 
       <section className="page-section">
