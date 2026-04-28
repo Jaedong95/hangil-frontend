@@ -111,9 +111,6 @@ export default function Hero() {
               <p className="why-desc">
                 수석감리원·기술사·AI 전문가 등 각 분야 전문 인력과 대한민국 최초 AI 감리 기술을 결합하여 최고의 감리 서비스를 제공합니다.
               </p>
-              <Link to="/company/greeting" className="btn-primary" style={{ marginTop: 8 }}>
-                회사 소개 보기
-              </Link>
             </div>
             <div className="why-right">
               {WHY_ITEMS.map((item, i) => (

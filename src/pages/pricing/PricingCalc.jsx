@@ -58,7 +58,7 @@ function fmtInput(val) {
 const INIT_INPUTS = Object.fromEntries(COST_ITEMS.map((c) => [c.key, '']));
 
 export default function PricingCalc() {
-  const [tab, setTab] = useState('download');
+  const [tab, setTab] = useState('calc');
 
   /* 입력 상태 */
   const [inputs, setInputs]           = useState(INIT_INPUTS);
@@ -144,11 +144,11 @@ export default function PricingCalc() {
 
           {/* ── 탭 ── */}
           <div className="calc-tabs">
-            <button className={`calc-tab${tab === 'download' ? ' active' : ''}`} onClick={() => setTab('download')}>
-              📊 엑셀 다운로드
-            </button>
             <button className={`calc-tab${tab === 'calc' ? ' active' : ''}`} onClick={() => setTab('calc')}>
               🧮 웹 계산기
+            </button>
+            <button className={`calc-tab${tab === 'download' ? ' active' : ''}`} onClick={() => setTab('download')}>
+              📊 엑셀 다운로드
             </button>
           </div>
 

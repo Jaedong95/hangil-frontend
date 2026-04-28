@@ -302,13 +302,13 @@
 .perf-stat-card {
   background: linear-gradient(135deg, var(--primary-dark), var(--primary));
   color: white;
-  padding: 36px 24px;
+  padding: 20px 16px;
   text-align: center;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
 }
 
-.perf-stat-value { font-size: 2.4rem; font-weight: 900; color: white; display: block; margin-bottom: 8px; letter-spacing: -0.03em; }
+.perf-stat-value { font-size: 1.5rem; font-weight: 900; color: white; display: block; margin-bottom: 8px; letter-spacing: -0.03em; }
 .perf-stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.55); }
 
 .perf-table { width: 100%; border-collapse: collapse; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }

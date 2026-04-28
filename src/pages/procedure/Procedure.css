@@ -530,13 +530,13 @@
 .proc-outputs { display: flex; flex-direction: column; gap: 8px; }
 
 .proc-output-badge {
-  display: inline-flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 8px;
   padding: 10px 16px;
   border: 1px solid var(--border);
   color: var(--text-dark);
   border-radius: var(--radius);
   font-size: 0.86rem; font-weight: 500;
-  width: fit-content;
+  width: 100%;
   background: var(--bg-light);
 }
 

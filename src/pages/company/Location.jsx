@@ -23,7 +23,7 @@ export default function Location() {
                 height="400"
                 style={{ border: 0, borderRadius: 'var(--radius-lg)', display: 'block' }}
                 allowFullScreen
-                loading="lazy"
+                loading="eager"
               />
             </div>
 

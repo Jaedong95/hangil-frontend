@@ -10,7 +10,7 @@ const DEPTS = [
   },
   {
     name: '품질/진단 컨설팅',
-    teams: ['제3자 테스트', '보안약점/취약점 진단', '성능 진단', '클라우드 진단', '데이터품질 진단'],
+    teams: ['제3자 테스트', '보안약점/취약점 진단', '성능 진단', '클라우드 진단', '데이터품질 진단', '기능점수 산정'],
   },
   {
     name: '정보화 교육팀',
@@ -91,71 +91,6 @@ export default function OrgChart() {
             </div>
           </div>
 
-          {/* ── 등급별/자격별 인력 현황 ── */}
-          <div style={{ marginTop: 64 }}>
-            <div className="section-divider" />
-            <h2 className="section-title">등급별/자격별 인력 현황</h2>
-
-            <div className="org-stats-wrap">
-              {/* 기술 등급 */}
-              <table className="org-stats-table">
-                <thead>
-                  <tr>
-                    <th>기술 등급</th>
-                    <th>인원(명)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {GRADE_ROWS.map((r) => (
-                    <tr key={r.grade} className={r.total ? 'org-stats-total' : ''}>
-                      <td style={{ fontWeight: r.bold ? 700 : 400 }}>{r.grade}</td>
-                      <td style={{ fontWeight: r.bold ? 700 : 400, textAlign: 'center' }}>{r.count}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-
-              {/* 자격명 1 */}
-              <table className="org-stats-table">
-                <thead>
-                  <tr>
-                    <th>자격명</th>
-                    <th>인원(명)</th>
-                    <th>설명</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {CERT_ROWS_1.map((r) => (
-                    <tr key={r.name}>
-                      <td style={{ fontWeight: 600 }}>{r.name}</td>
-                      <td style={{ textAlign: 'center' }}>{r.count}</td>
-                      <td>{r.desc}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-
-              {/* 자격명 2 */}
-              <table className="org-stats-table">
-                <thead>
-                  <tr>
-                    <th>자격명</th>
-                    <th>인원(명)</th>
-                    <th>설명</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {CERT_ROWS_2.map((r) => (
-                    <tr key={r.name}>
-                      <td style={{ fontWeight: 600 }}>{r.name}</td>
-                      <td style={{ textAlign: 'center' }}>{r.count}</td>
-                      <td>{r.desc}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
 
         </div>
       </section>
