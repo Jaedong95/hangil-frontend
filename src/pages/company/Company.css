@@ -20,6 +20,14 @@
   font-size: 0.82rem;
 }
 
+.portrait-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
 .greeting-text p {
   color: var(--text-mid);
   line-height: 2;

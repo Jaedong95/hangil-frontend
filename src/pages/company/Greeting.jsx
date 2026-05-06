@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
 import aboutBg from '../../assets/AboutUs.png';
+import ceoPic from '../../assets/ceo.png';
 import './Company.css';
 
 export default function Greeting() {
@@ -15,9 +16,7 @@ export default function Greeting() {
       <section className="page-section">
         <div className="container greeting-layout">
           <div className="greeting-portrait">
-            <div className="portrait-placeholder">
-              <span>대표이사</span>
-            </div>
+            <img src={ceoPic} alt="대표이사 원대길" className="portrait-img" />
           </div>
           <div className="greeting-body">
             <div className="section-divider" />
