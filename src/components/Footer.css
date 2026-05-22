@@ -71,6 +71,16 @@
 .footer-bottom-links { display: flex; gap: 20px; }
 .footer-bottom-links a { color: rgba(255,255,255,0.22); transition: color 0.2s; }
 .footer-bottom-links a:hover { color: rgba(255,255,255,0.55); }
+.footer-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(255,255,255,0.22);
+  font-size: 0.78rem;
+  transition: color 0.2s;
+}
+.footer-link-btn:hover { color: rgba(255,255,255,0.55); }
 
 @media (max-width: 960px) {
   .footer-inner { grid-template-columns: 1fr; gap: 48px; }

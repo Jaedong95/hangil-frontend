@@ -83,8 +83,8 @@ export default function Footer() {
         <div className="container footer-bottom-inner">
           <span>© 2025 주식회사 한길에이아이. All rights reserved.</span>
           <div className="footer-bottom-links">
-            <a href="#">개인정보처리방침</a>
-            <a href="#">이용약관</a>
+            <button type="button" className="footer-link-btn">개인정보처리방침</button>
+            <button type="button" className="footer-link-btn">이용약관</button>
           </div>
         </div>
       </div>
