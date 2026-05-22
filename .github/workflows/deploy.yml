@@ -71,6 +71,6 @@ jobs:
             docker run -d \
               --name hangil-frontend \
               --restart always \
-              -p 80:80 \
+              -p 3000:80 \
               ghcr.io/${{ env.IMAGE_NAME }}:latest
             docker image prune -f
