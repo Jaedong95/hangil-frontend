@@ -1,7 +1,7 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
 import aboutBg from '../../assets/AboutUs.png';
-import ceoPic from '../../assets/ceo.png';
+import ceoPic from '../../assets/ceo-new.png';
 import './Company.css';
 
 export default function Greeting() {
